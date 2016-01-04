@@ -1,8 +1,12 @@
 @import "../bower_components/bootstrap-less/less/bootstrap";
+@import url(fonts);
+@import url(../bower_components/font-awesome-less/less/font-awesome);
+
+@fa-font-path: "fonts";
 
 body {
-  font-family: Droid Serif,"Helvetica Neue", Helvetica, Arial, sans-serif;
-
+  font-family: droid_serifregular,"Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #636467;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   -o-font-smoothing: antialiased;
@@ -94,6 +98,122 @@ body {
           width: 100%;
           height: 500px;
           background: rgba(34,34,34,0.5);
+
+          .carousel-caption {
+            position: relative;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+
+            .container {
+              height: 500px;
+              display: table-cell;
+              vertical-align: middle;
+
+              .category {
+                background: #0277bd;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                display: inline-block;
+
+                i {
+                  margin-right: 5px;
+                }
+
+                &:hover {
+                  text-decoration: none;
+                }
+              }
+
+              h3 {
+                font-size: 35px;
+                line-height: 1.4;
+              }
+
+              p {
+                font-size: 20px;
+              }
+
+              .meta_data {
+                padding: 0;
+                margin: 0;
+                display: inline-block;
+                text-align: center;
+
+                li {
+                  display: block;
+                  float: left;
+                  margin-right: 20px;
+
+                  &:last-child {
+                    margin-right: 0;
+                  }
+
+                  .fa {
+                    margin-right: 5px;
+                  }
+
+                  a {
+                    color: white;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#content {
+  padding: 90px 0;
+
+  .item-block {
+    .inner {
+      height: 512px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      overflow: hidden;
+
+      .img {
+        display: block;
+        max-width: 100%;
+        width: 100%;
+        height: 240px;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .inner-text {
+        padding: 20px 20px;
+
+        .category {
+          display: block;
+          color: #999;
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+
+        .title {
+          display: inline-block;
+          color: #636467;
+          font-size: 18px;
+          line-height: 1.4;
+          margin-bottom: 10px;
+        }
+
+        .desc {
+          font-size: 13px;
+          line-height: 1.7;
+        }
+
+        hr {
+          margin: 10px 0;
         }
       }
     }
