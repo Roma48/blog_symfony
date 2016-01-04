@@ -1,0 +1,103 @@
+@import "../bower_components/bootstrap-less/less/bootstrap";
+
+body {
+  font-family: Droid Serif,"Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+}
+
+#header {
+  width: 100%;
+  height: 60px;
+  //border-bottom: 1px solid black;
+  position: fixed;
+  z-index: 999;
+  background: white;
+
+  #logo {
+    float: left;
+    margin: 17px 0 0;
+  }
+
+  #main-menu {
+    float: right;
+    margin: 20px 0;
+
+    #top-menu {
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: block;
+        float: left;
+        margin: 0 15px;
+
+        a {
+          font-size: 14px;
+          color: #868789;
+
+          &:hover {
+            text-decoration: none;
+            color: #c41411;
+          }
+        }
+      }
+    }
+  }
+}
+
+#slider {
+  padding-top: 60px;
+
+  #myCarousel {
+
+    .carousel-control {
+      height: 60px;
+      width: 60px;
+      top: 45%;
+      background: rgba(0,0,0,0.1);
+      opacity: 1;
+
+      span {
+        font-size: 27px;
+        &:before {
+          font-size: 20px;
+        }
+      }
+
+      &:hover {
+        background: rgba(0,0,0,0.7);
+      }
+    }
+
+    .carousel-control.left {
+      left: 2%;
+    }
+
+    .carousel-control.right {
+      right: 2%;
+    }
+
+    .carousel-inner {
+
+      .item {
+        height: 500px;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center top;
+
+        .dark-shadow {
+          width: 100%;
+          height: 500px;
+          background: rgba(34,34,34,0.5);
+        }
+      }
+    }
+  }
+}
+
+

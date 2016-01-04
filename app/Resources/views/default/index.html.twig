@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div id="header">
+        <div class="container">
+            <div id="logo">
+                <img src="{{ asset('img/blog_logo.png') }}" alt="">
+            </div>
+            <div id="main-menu">
+                <ul id="top-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Categories</a></li>
+                    <li><a href="/">Blog</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="slider">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active" style="background-image: url('{{ asset('img/slide1.jpg') }}')">
+                    <div class="dark-shadow">
+                        <div class="carousel-caption">
+                            <h3>Chania</h3>
+                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" style="background-image: url('{{ asset('img/slide1.jpg') }}')">
+                    <div class="dark-shadow">
+                        <div class="carousel-caption">
+                            <h3>Chania</h3>
+                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" style="background-image: url('{{ asset('img/slide1.jpg') }}')">
+                    <div class="dark-shadow">
+                        <div class="carousel-caption">
+                            <h3>Chania</h3>
+                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" style="background-image: url('{{ asset('img/slide1.jpg') }}')">
+                    <div class="dark-shadow">
+                        <div class="carousel-caption">
+                            <h3>Chania</h3>
+                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+{% endblock body %}
