@@ -172,51 +172,88 @@ body {
 #content {
   padding: 90px 0;
 
-  .item-block {
-    .inner {
-      height: 512px;
-      border: 1px solid #eee;
-      border-radius: 5px;
-      overflow: hidden;
+  .content {
 
-      .img {
-        display: block;
-        max-width: 100%;
-        width: 100%;
-        height: 240px;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-      }
+    .item-block {
+      margin: 0 0 30px;
 
-      .inner-text {
-        padding: 20px 20px;
+      .inner {
+        height: 512px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        overflow: hidden;
 
-        .category {
+        .img {
           display: block;
-          color: #999;
-          font-size: 12px;
-          margin-bottom: 5px;
+          max-width: 100%;
+          width: 100%;
+          height: 240px;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
         }
 
-        .title {
-          display: inline-block;
-          color: #636467;
-          font-size: 18px;
-          line-height: 1.4;
-          margin-bottom: 10px;
-        }
+        .inner-text {
+          padding: 20px 20px;
 
-        .desc {
-          font-size: 13px;
-          line-height: 1.7;
-        }
+          .category {
+            display: block;
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 5px;
+          }
 
-        hr {
-          margin: 10px 0;
+          .title {
+            display: inline-block;
+            color: #636467;
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+          }
+
+          .desc {
+            font-size: 13px;
+            line-height: 1.7;
+          }
+
+          hr {
+            margin: 10px 0;
+          }
+
+          .meta_data {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+
+            li {
+              display: inline-block;
+              padding: 0 15px;
+              border-right: 1px solid #eee;
+
+              span, a {
+                color: #999;
+              }
+
+              .fa {
+                margin-right: 5px;
+              }
+
+              &:last-child {
+                border-right: none;
+              }
+            }
+          }
         }
       }
     }
+  }
+
+  .pagination {
+    width: 100%;
+    padding: 30px 0 0;
+    border-top: 1px solid #ccc;
   }
 }
 
