@@ -27,35 +27,34 @@
                 <div class="item active" style="background-image: url('{{ asset('img/slide1.jpg') }}')">
                     <div class="dark-shadow">
                         <div class="carousel-caption">
-                            <h3>Chania</h3>
-                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-                        </div>
-                    </div>
-                </div>
+                            <div class="container">
+                                <a class="category" href="/"><i class="fa fa-random"></i> Random</a>
 
-                <div class="item" style="background-image: url('{{ asset('img/slide1.jpg') }}')">
-                    <div class="dark-shadow">
-                        <div class="carousel-caption">
-                            <h3>Chania</h3>
-                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-                        </div>
-                    </div>
-                </div>
+                                <h3>Flying to the US is becoming more inconvenient as TSA bans uncharged devices from
+                                    flights</h3>
 
-                <div class="item" style="background-image: url('{{ asset('img/slide1.jpg') }}')">
-                    <div class="dark-shadow">
-                        <div class="carousel-caption">
-                            <h3>Chania</h3>
-                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item" style="background-image: url('{{ asset('img/slide1.jpg') }}')">
-                    <div class="dark-shadow">
-                        <div class="carousel-caption">
-                            <h3>Chania</h3>
-                            <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                                <p>Curabitur ut malesuada elit. Nullam tortor mi</p>
+                                <hr>
+                                <ul class="meta_data">
+                                    <li class="author">
+                                        <a class="url fn" href="/"><span class="fa fa-user"></span>mostafamabrouk</a>
+                                    </li>
+                                    <li class="time">
+                                        <time class="value updated" datetime="2012-08-20">
+                                            <span class="fa fa-calendar-o"></span>August 20, 2012
+                                        </time>
+                                    </li>
+                                    <li class="comment">
+                                        <a href="/"><span class="fa fa-comment-o"></span>20</a>
+                                    </li>
+                                    <li class="like">
+                                        <span class="like" data-post_id="20">
+                                            <span class="fa fa-heart-o"></span>
+                                            <span class="count">0</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,6 +69,149 @@
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="container">
+            <div class="content">
+
+                {% for i in 0..8 %}
+                    <div class="item-block col col-lg-4">
+                        <div class="inner">
+                            <div class="img" style="background-image: url('{{ asset('img/slide1.jpg') }}')"></div>
+                            <div class="inner-text">
+                                <a class="category" href="/"><i class="fa fa-random"></i> Random</a>
+                                <a class="title" href="/">Fly Directly Into a Fireworks Display With This Drone
+                                    Footage</a>
+
+                                <p class="desc">Cras sit amet libero eros, in ultricies lorem. Nunc et odio neque.
+                                    Maecenas vehicula interdum hendrerit. Integer hendrerit orci ullamcorper neque
+                                    pellentesque feugiat. Aliquam magna metus</p>
+                                <hr>
+                                <ul class="meta_data">
+                                    <li class="author">
+                                        <a class="url fn" href="/"><span class="fa fa-user"></span>mostafamabrouk</a>
+                                    </li>
+                                    <li class="comment">
+                                        <a href="/"><span class="fa fa-comment-o"></span>19</a>
+                                    </li>
+                                    <li class="like">
+                                <span class="post-like">
+                                    <span class="fa fa-heart-o"></span>
+                                    <span class="count">3</span>
+                                </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <div id="pagination">
+                <div class="">
+                    <ul class="pagination">
+                        <li><span class="page-numbers current"><span class="num">1</span></span></li>
+                        <li><a class="page-numbers" href="/"><span class="num">2</span></a></li>
+                        <li><a class="page-numbers" href="/"><span class="num">3</span></a></li>
+                        <li><a class="next page-numbers" href="/"><span class="num fa fa-angle-right"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <div class="footer-cols">
+                <div class="col col-lg-3">
+                    <div class="content">
+                        <p><img src="{{ asset('img/crystal-white.png') }}" alt="" style="margin-bottom: 20px"></p>
+
+                        <p>Crystal is a personal blog and magazine WordPress theme that lets you present your thoughts
+                            and information in an elegant way.</p>
+
+                        <p>Start Building your website in few minutes and get the support of retina, responsive, rtl and
+                            WPML and much more at your finger tip.</p>
+                    </div>
+                </div>
+
+                <div class="col col-lg-3">
+                    <div class="content">
+                        <h3 class="title">Recent Posts</h3>
+                        <ul>
+                            <li>
+                                <a href="/">Fly Directly Into a Fireworks Display With This Drone Footage</a>
+                                <span class="post-date">November 1, 2014</span>
+                            </li>
+                            <li>
+                                <a href="/">How the Internet is Democratizing Luxury</a>
+                                <span class="post-date">September 22, 2014</span>
+                            </li>
+                            <li>
+                                <a href="/">10 Frozen Cocktails for a Buzzy Fourth of July</a>
+                                <span class="post-date">September 20, 2014</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col col-lg-3">
+                    <div class="content">
+                        <h3 class="title">Recent Posts</h3>
+                        <ul>
+                            <li>
+                                <a href="/">Fly Directly Into a Fireworks Display With This Drone Footage</a>
+                                <span class="post-date">November 1, 2014</span>
+                            </li>
+                            <li>
+                                <a href="/">How the Internet is Democratizing Luxury</a>
+                                <span class="post-date">September 22, 2014</span>
+                            </li>
+                            <li>
+                                <a href="/">10 Frozen Cocktails for a Buzzy Fourth of July</a>
+                                <span class="post-date">September 20, 2014</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col col-lg-3">
+                    <div class="content">
+                        <p><img src="{{ asset('img/crystal-white.png') }}" alt=""></p>
+
+                        <p>Crystal is a personal blog and magazine WordPress theme that lets you present your thoughts
+                            and information in an elegant way.</p>
+
+                        <p>Start Building your website in few minutes and get the support of retina, responsive, rtl and
+                            WPML and much more at your finger tip.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-bottom">
+        <div class="container">
+            <div class="col col-lg-6">
+                <div class="copyright">Copyright ©2016. Designed by
+                    <a href="/">Roma Paliy</a>
+                </div>
+            </div>
+            <div class="col col-lg-6">
+                <div class="social_icons">
+                    <div class="single_social_icon"><a class=" fa fa-facebook" href="#" target="_blank"></a></div>
+                    <div class="single_social_icon"><a class=" fa fa-twitter" href="#" target="_blank"></a></div>
+                    <div class="single_social_icon"><a class=" fa fa-google-plus" href="#" target="_blank"></a></div>
+                    <div class="single_social_icon"><a class=" fa fa-linkedin" href="#" target="_blank"></a></div>
+                    <div class="single_social_icon"><a class=" fa fa-instagram" href="#" target="_blank"></a></div>
+                    <div class="single_social_icon"><a class=" fa fa-dribbble" href="#" target="_blank"></a></div>
+                    <div class="single_social_icon"><a class=" fa fa-behance" href="#" target="_blank"></a></div>
+                    <div class="single_social_icon"><a class=" fa fa-youtube" href="#" target="_blank"></a></div>
+                    <div class="single_social_icon"><a class=" fa fa-vimeo-square" href="#" target="_blank"></a></div>
+                </div>
+            </div>
         </div>
     </div>
 
