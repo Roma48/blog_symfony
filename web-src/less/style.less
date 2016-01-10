@@ -21,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 #header {
   width: 100%;
   height: 60px;
-  //border-bottom: 1px solid black;
+  border-bottom: 3px solid #f5f5f5;
   position: fixed;
   z-index: 999;
   background: white;
@@ -174,7 +174,68 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-#content {
+#header-image {
+  padding-top: 60px;
+  height: 560px;
+
+  .image-wrapper {
+    height: 500px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+
+    .dark-shadow {
+      width: 100%;
+      height: 500px;
+      background: rgba(34, 34, 34, 0.5);
+
+      .container {
+
+        .article-caption {
+          position: relative;
+          width: 100%;
+          max-width: 740px;
+          height: 480px;
+          display: table-cell;
+          vertical-align: bottom;
+          text-align: left;
+
+          .category {
+            background: #0277bd;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 14px;
+
+            i {
+              margin-right: 5px;
+            }
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+
+          h3 {
+            font-size: 50px;
+            line-height: 1.2;
+            color: white;
+            margin: 10px 0 0;
+          }
+
+          p {
+            font-size: 24px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.homepage #content {
   padding: 90px 0 25px;
 
   .content {
@@ -296,6 +357,170 @@ h1, h2, h3, h4, h5, h6 {
       &:last-child a {
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
+      }
+    }
+  }
+}
+
+#content {
+  padding: 60px 0 25px;
+
+  .content {
+    width: 70%;
+    float: left;
+    padding: 0 15px;
+
+    .meta_data ul {
+      display: inline-block;
+      padding: 0;
+      margin: 0 0 40px;
+      width: 100%;
+      text-align: left;
+
+      li {
+        display: inline-block;
+        padding: 0 15px;
+        border-right: 1px solid #eee;
+
+        span, a {
+          color: #999;
+        }
+
+        .fa {
+          margin-right: 5px;
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+
+    .article-text {
+      *:first-child {
+        margin-top: 0;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        margin: 0 0 20px;
+        line-height: 1.5;
+        font-family: droid_serifbold;
+      }
+
+      p {
+        margin-bottom: 30px;
+      }
+
+      table {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-bottom: none;
+        font-size: 14px;
+        margin-bottom: 30px;
+
+        caption {
+          border: 1px solid #ccc;
+          border-bottom: none;
+          padding: 10px;
+          text-align: center;
+        }
+
+        tr {
+          border-bottom: 1px solid #ccc;
+        }
+
+        th {
+          font-family: droid_serifbold;
+        }
+
+        th, td {
+          padding: 10px;
+          border-right: 1px solid #ccc;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    width: 30%;
+    float: left;
+    padding: 0 15px;
+
+    .latest-posts {
+      article {
+        position: relative;
+        display: block;
+        margin-bottom: 10px;
+        min-height: 101px;
+        padding: 10px 10px 0px;
+        border: 1px solid #eee;
+
+        .thumb-hover {
+          min-height: 100px;
+          position: absolute;
+          display: block;
+          top: 0px;
+          left: 0px;
+          z-index: 1;
+
+          img {
+            margin: 0px;
+            max-width: 100%;
+            height: auto;
+          }
+        }
+
+        .post-content {
+          display: block;
+          position: relative;
+          padding-left: 100px;
+
+          h3 {
+            margin: 0px 0px 7px;
+            line-height: 1.4;
+            font-size: 14px;
+            text-rendering: optimizelegibility;
+
+            a {
+              color: #636467;
+            }
+          }
+
+          .meta_data {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            text-align: left;
+
+            li {
+              display: inline-block;
+              padding: 0 15px;
+              border-right: 1px solid #eee;
+              font-size: 11px;
+
+              span, a {
+                color: #999;
+              }
+
+              .fa {
+                margin-right: 5px;
+              }
+
+              &:last-child {
+                border-right: none;
+              }
+
+              &:first-child {
+                padding-left: 0;
+              }
+            }
+          }
+        }
       }
     }
   }
