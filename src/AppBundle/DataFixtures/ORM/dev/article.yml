@@ -1,0 +1,12 @@
+AppBundle\Entity\Article:
+  article{1..10}:
+    title: test
+    slug: <customSlug($title)>
+    description: test
+    content: test
+    author: test
+    like: test
+    views: test
+    comments: test
+    category: @category*
+

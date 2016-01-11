@@ -19,7 +19,7 @@ class DefaultController extends Controller
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'class' => $request->attributes->get('_route'),
-            'title' => 'Article'
+            'title' => 'Home page'
         ));
     }
 }

@@ -58,6 +58,7 @@
     {% endblock %}
 
     {% block content %}
+        <div class="content">
 
             {% for i in 0..8 %}
                     <div class="item-block col col-lg-4">
@@ -90,7 +91,7 @@
                         </div>
                     </div>
             {% endfor %}
-
+        </div>
             <div id="pagination">
                 <div class="">
                     <ul class="pagination">
@@ -101,6 +102,7 @@
                     </ul>
                 </div>
         </div>
+
 
     {% endblock content %}
 

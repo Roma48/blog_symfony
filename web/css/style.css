@@ -8666,7 +8666,6 @@ h6 {
   padding: 60px 0 25px;
 }
 .article #content .content {
-  width: 70%;
   float: left;
   padding: 0 15px;
 }
@@ -8736,7 +8735,6 @@ h6 {
   border-right: 1px solid #ccc;
 }
 .article #content .sidebar {
-  width: 30%;
   float: left;
   padding: 0 15px;
 }

@@ -1,34 +1,32 @@
 {% extends 'base.html.twig' %}
 
-    {% block header %}{% endblock header %}
-
-    <div id="header-image">
+    {% block header_image %}
+        <div id="header-image">
             <div class="image-wrapper" style="background-image: url('{{ asset('img/slide1.jpg') }}')">
                 <div class="dark-shadow">
                     <div class="container">
                         <div class="article-caption">
 
-                                <a class="category" href="/"><i class="fa fa-random"></i> Random</a>
+                            <a class="category" href="/"><i class="fa fa-random"></i> Random</a>
 
-                                <h3>Flying to the US is becoming more inconvenient as TSA bans uncharged devices from
-                                    flights</h3>
+                            <h3>Flying to the US is becoming more inconvenient as TSA bans uncharged devices from
+                                flights</h3>
 
-                                <p>Curabitur ut malesuada elit. Nullam tortor mi</p>
+                            <p>Curabitur ut malesuada elit. Nullam tortor mi</p>
 
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
+    {% endblock header_image %}
 
-    <div id="content">
-        <div class="container">
-            <div class="content">
-
-                {% block content %}
-                    <div class="meta_data">
+    {% block content %}
+        <div class="content col col-lg-8">
+            <div class="meta_data">
                         <ul>
-                            <li class="author"><a class="url fn" href="http://crystal.code125.com/demo5/author/mostafamabrouk/">
+                            <li class="author"><a class="url fn"
+                                                  href="http://crystal.code125.com/demo5/author/mostafamabrouk/">
                                     <span class="fa fa-user"></span>mostafamabrouk
                                 </a>
                             </li>
@@ -56,19 +54,25 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="article-text">
+            <div class="article-text">
                         <h1>This is a Heading Element 1</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit amet tempor id, gravida eget orci.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit
+                            amet tempor id, gravida eget orci.</p>
                         <h2>This is a Heading Element 2</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit amet tempor id, gravida eget orci.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit
+                            amet tempor id, gravida eget orci.</p>
                         <h3>This is a Heading Element 3</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit amet tempor id, gravida eget orci.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit
+                            amet tempor id, gravida eget orci.</p>
                         <h4>This is a Heading Element 4</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit amet tempor id, gravida eget orci.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit
+                            amet tempor id, gravida eget orci.</p>
                         <h5>This is a Heading Element 5</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit amet tempor id, gravida eget orci.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit
+                            amet tempor id, gravida eget orci.</p>
                         <h6>This is a Heading Element 6</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit amet tempor id, gravida eget orci.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris metus tortor, commodo sit
+                            amet tempor id, gravida eget orci.</p>
                         <hr>
                         <table summary="Table summary">
                             <caption>Table Caption</caption>
@@ -92,61 +96,87 @@
                             </tr>
                             </tbody>
                         </table>
-                        <p>Lorem ipsum dolor sit&nbsp;<ins>amet</ins>,&nbsp;<a href="#">test link</a>&nbsp;adipiscing elit.&nbsp;<strong>This is strong.</strong>&nbsp;Nullam dignissim convallis est. Quisque aliquam.&nbsp;<em>This is emphasized.</em>&nbsp;Donec faucibus. Nunc iaculis suscipit dui. 5<sup>3</sup>&nbsp;= 125. Water is H<sub>2</sub>O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.&nbsp;<cite>The New York Times</cite>&nbsp;(That’s a citation).&nbsp;Underline.&nbsp;Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-                        <p><abbr>HTML</abbr>&nbsp;and&nbsp;<abbr>CSS</abbr>&nbsp;are our tools. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. To copy a file type&nbsp;<del>Dinner’s at 5:00.</del>&nbsp;<ins>Let’s make that 7.</ins>&nbsp;This&nbsp;text&nbsp;has been struck.</p>
+                        <p>Lorem ipsum dolor sit&nbsp;
+                            <ins>amet</ins>
+                            ,&nbsp;<a href="#">test link</a>&nbsp;adipiscing elit.&nbsp;<strong>This is strong.</strong>&nbsp;Nullam
+                            dignissim convallis est. Quisque aliquam.&nbsp;<em>This is emphasized.</em>&nbsp;Donec
+                            faucibus. Nunc iaculis suscipit dui. 5<sup>3</sup>&nbsp;= 125. Water is H<sub>2</sub>O. Nam
+                            sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl.&nbsp;<cite>The
+                                New York Times</cite>&nbsp;(That’s a citation).&nbsp;Underline.&nbsp;Maecenas ornare
+                            tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem,
+                            consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.
+                        </p>
+                        <p><abbr>HTML</abbr>&nbsp;and&nbsp;<abbr>CSS</abbr>&nbsp;are our tools. Mauris a ante.
+                            Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue
+                            quis tellus. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu
+                            volutpat enim diam eget metus. To copy a file type&nbsp;
+                            <del>Dinner’s at 5:00.</del>
+                            &nbsp;
+                            <ins>Let’s make that 7.</ins>
+                            &nbsp;This&nbsp;text&nbsp;has been struck.
+                        </p>
                         <hr>
                         <h2>Preformatted Text</h2>
-                        <p>Typographically, preformatted text is not the same thing as code. Sometimes, a faithful execution of the text requires preformatted text that may not have anything to do with code. Most browsers use Courier and that’s a good default — with one slight adjustment, Courier 10 Pitch over regular Courier for Linux users. For&nbsp;example:</p>
+                        <p>Typographically, preformatted text is not the same thing as code. Sometimes, a faithful
+                            execution of the text requires preformatted text that may not have anything to do with code.
+                            Most browsers use Courier and that’s a good default — with one slight adjustment, Courier 10
+                            Pitch over regular Courier for Linux users. For&nbsp;example:</p>
     <pre>“Beware the Jabberwock, my son!
         The jaws that bite, the claws that catch!
     Beware the Jubjub bird, and shun
         The frumious Bandersnatch!”</pre>
                         <hr>
                         <h2>Blockquotes</h2>
-                        <p>Let’s keep it simple. Italics are good to help set it off from the body text (and italic Georgia is lovely at this size). Be sure to style the citation.</p>
-                        <blockquote><p>Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr. Langley, and he taught me to sing a song. If you’d like to hear it I can sing it for you. <cite>—&nbsp;<a href="http://en.wikipedia.org/wiki/HAL_9000">HAL 9000</a></cite></p></blockquote>
-                        <p>And here’s a bit of trailing text. Cras sit amet libero eros, in ultricies lorem. Nunc et odio neque. Maecenas vehicula interdum hendrerit. Integer hendrerit orci ullamcorper neque pellentesque feugiat. Aliquam magna metus, fringilla non ultrices id, fringilla eu erat. Phasellus lorem tortor, porttitor volutpat iaculis sed, condimentum ultricies massa. Curabitur ut malesuada elit. Nullam tortor mi, faucibus a laoreet a, ultricies ut est.</p>
+                        <p>Let’s keep it simple. Italics are good to help set it off from the body text (and italic
+                            Georgia is lovely at this size). Be sure to style the citation.</p>
+                        <blockquote><p>Good afternoon, gentlemen. I am a HAL 9000 computer. I became operational at the
+                                H.A.L. plant in Urbana, Illinois on the 12th of January 1992. My instructor was Mr.
+                                Langley, and he taught me to sing a song. If you’d like to hear it I can sing it for
+                                you. <cite>—&nbsp;<a href="http://en.wikipedia.org/wiki/HAL_9000">HAL 9000</a></cite>
+                            </p></blockquote>
+                        <p>And here’s a bit of trailing text. Cras sit amet libero eros, in ultricies lorem. Nunc et
+                            odio neque. Maecenas vehicula interdum hendrerit. Integer hendrerit orci ullamcorper neque
+                            pellentesque feugiat. Aliquam magna metus, fringilla non ultrices id, fringilla eu erat.
+                            Phasellus lorem tortor, porttitor volutpat iaculis sed, condimentum ultricies massa.
+                            Curabitur ut malesuada elit. Nullam tortor mi, faucibus a laoreet a, ultricies ut est.</p>
                         <div class="clearfix"></div>
 
                         <div style="min-height:30px;"></div>
                     </div>
-                {% endblock content %}
+        </div>
+    {% endblock content %}
 
-            </div>
-            <div class="sidebar">
-                <div class="latest-posts">
+    {% block sidebar %}
+        <div class="sidebar col col-lg-4">
+                   <div class="latest-posts">
 
-                {% for i in 0..5  %}
-                    <article>
-                        <div class="thumb-hover">
-                            <img width="100" height="100"
-                                 src="http://crystal.code125.com/demo5/wp-content/uploads/sites/6/2014/11/city-100x100.jpg" >
-                        </div>
-                        <div class="post-content">
-                            <h3><a href="/">Fly Directly Into a Fireworks Display With This Drone Footage</a></h3>
-                            <ul class="meta_data">
-                                <li class="category">
-                                    <a href="/" class="c5-meta-cat category-5">
-                                        <span class="fa fa-random"></span>Random
-                                    </a>
-                                </li>
-                                <li class="like">
+                       {% for i in 0..5 %}
+                           <article>
+                               <div class="thumb-hover">
+                                   <img width="100" height="100"
+                                        src="http://crystal.code125.com/demo5/wp-content/uploads/sites/6/2014/11/city-100x100.jpg">
+                               </div>
+                               <div class="post-content">
+                                   <h3><a href="/">Fly Directly Into a Fireworks Display With This Drone Footage</a>
+                                   </h3>
+                                   <ul class="meta_data">
+                                       <li class="category">
+                                           <a href="/" class="c5-meta-cat category-5">
+                                               <span class="fa fa-random"></span>Random
+                                           </a>
+                                       </li>
+                                       <li class="like">
                                     <span class="c5-post-like">
                                         <span class="fa fa-heart-o"></span>
                                         <span class="count">3</span>
                                     </span>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                    </article>
-                    {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                       </li>
+                                   </ul>
+                                   <div class="clearfix"></div>
+                               </div>
+                           </article>
+                       {% endfor %}
+                   </div>
+               </div>
+    {% endblock sidebar %}
 
-    {% block footer %}{% endblock footer %}
-
-    {% block footer_bottom %}{% endblock footer_bottom %}

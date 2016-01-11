@@ -51,7 +51,7 @@ class Article {
 
     /**
      * @var
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      */
     protected $comments;
 
@@ -63,13 +63,13 @@ class Article {
 
     /**
      * @var
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     protected $like;
 
     /**
      * @var
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     protected $views;
 
