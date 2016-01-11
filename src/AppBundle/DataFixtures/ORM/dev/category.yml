@@ -1,4 +1,4 @@
 AppBundle\Entity\Category:
     category{1..10}:
         name: <name()>
-        class: <fa-random>
+        class: fa-random
