@@ -8662,85 +8662,85 @@ h6 {
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
 }
-#content {
+.article #content {
   padding: 60px 0 25px;
 }
-#content .content {
+.article #content .content {
   width: 70%;
   float: left;
   padding: 0 15px;
 }
-#content .content .meta_data ul {
+.article #content .content .meta_data ul {
   display: inline-block;
   padding: 0;
   margin: 0 0 40px;
   width: 100%;
   text-align: left;
 }
-#content .content .meta_data ul li {
+.article #content .content .meta_data ul li {
   display: inline-block;
   padding: 0 15px;
   border-right: 1px solid #eee;
 }
-#content .content .meta_data ul li span,
-#content .content .meta_data ul li a {
+.article #content .content .meta_data ul li span,
+.article #content .content .meta_data ul li a {
   color: #999;
 }
-#content .content .meta_data ul li .fa {
+.article #content .content .meta_data ul li .fa {
   margin-right: 5px;
 }
-#content .content .meta_data ul li:last-child {
+.article #content .content .meta_data ul li:last-child {
   border-right: none;
 }
-#content .content .meta_data ul li:first-child {
+.article #content .content .meta_data ul li:first-child {
   padding-left: 0;
 }
-#content .content .article-text *:first-child {
+.article #content .content .article-text *:first-child {
   margin-top: 0;
 }
-#content .content .article-text h1,
-#content .content .article-text h2,
-#content .content .article-text h3,
-#content .content .article-text h4,
-#content .content .article-text h5,
-#content .content .article-text h6 {
+.article #content .content .article-text h1,
+.article #content .content .article-text h2,
+.article #content .content .article-text h3,
+.article #content .content .article-text h4,
+.article #content .content .article-text h5,
+.article #content .content .article-text h6 {
   margin: 0 0 20px;
   line-height: 1.5;
   font-family: droid_serifbold;
 }
-#content .content .article-text p {
+.article #content .content .article-text p {
   margin-bottom: 30px;
 }
-#content .content .article-text table {
+.article #content .content .article-text table {
   width: 100%;
   border: 1px solid #ccc;
   border-bottom: none;
   font-size: 14px;
   margin-bottom: 30px;
 }
-#content .content .article-text table caption {
+.article #content .content .article-text table caption {
   border: 1px solid #ccc;
   border-bottom: none;
   padding: 10px;
   text-align: center;
 }
-#content .content .article-text table tr {
+.article #content .content .article-text table tr {
   border-bottom: 1px solid #ccc;
 }
-#content .content .article-text table th {
+.article #content .content .article-text table th {
   font-family: droid_serifbold;
 }
-#content .content .article-text table th,
-#content .content .article-text table td {
+.article #content .content .article-text table th,
+.article #content .content .article-text table td {
   padding: 10px;
   border-right: 1px solid #ccc;
 }
-#content .sidebar {
+.article #content .sidebar {
   width: 30%;
   float: left;
   padding: 0 15px;
 }
-#content .sidebar .latest-posts article {
+.article #content .sidebar .latest-posts article {
   position: relative;
   display: block;
   margin-bottom: 10px;
@@ -8748,7 +8748,7 @@ h6 {
   padding: 10px 10px 0px;
   border: 1px solid #eee;
 }
-#content .sidebar .latest-posts article .thumb-hover {
+.article #content .sidebar .latest-posts article .thumb-hover {
   min-height: 100px;
   position: absolute;
   display: block;
@@ -8756,49 +8756,49 @@ h6 {
   left: 0px;
   z-index: 1;
 }
-#content .sidebar .latest-posts article .thumb-hover img {
+.article #content .sidebar .latest-posts article .thumb-hover img {
   margin: 0px;
   max-width: 100%;
   height: auto;
 }
-#content .sidebar .latest-posts article .post-content {
+.article #content .sidebar .latest-posts article .post-content {
   display: block;
   position: relative;
   padding-left: 100px;
 }
-#content .sidebar .latest-posts article .post-content h3 {
+.article #content .sidebar .latest-posts article .post-content h3 {
   margin: 0px 0px 7px;
   line-height: 1.4;
   font-size: 14px;
   text-rendering: optimizelegibility;
 }
-#content .sidebar .latest-posts article .post-content h3 a {
+.article #content .sidebar .latest-posts article .post-content h3 a {
   color: #636467;
 }
-#content .sidebar .latest-posts article .post-content .meta_data {
+.article #content .sidebar .latest-posts article .post-content .meta_data {
   display: inline-block;
   padding: 0;
   margin: 0;
   width: 100%;
   text-align: left;
 }
-#content .sidebar .latest-posts article .post-content .meta_data li {
+.article #content .sidebar .latest-posts article .post-content .meta_data li {
   display: inline-block;
   padding: 0 15px;
   border-right: 1px solid #eee;
   font-size: 11px;
 }
-#content .sidebar .latest-posts article .post-content .meta_data li span,
-#content .sidebar .latest-posts article .post-content .meta_data li a {
+.article #content .sidebar .latest-posts article .post-content .meta_data li span,
+.article #content .sidebar .latest-posts article .post-content .meta_data li a {
   color: #999;
 }
-#content .sidebar .latest-posts article .post-content .meta_data li .fa {
+.article #content .sidebar .latest-posts article .post-content .meta_data li .fa {
   margin-right: 5px;
 }
-#content .sidebar .latest-posts article .post-content .meta_data li:last-child {
+.article #content .sidebar .latest-posts article .post-content .meta_data li:last-child {
   border-right: none;
 }
-#content .sidebar .latest-posts article .post-content .meta_data li:first-child {
+.article #content .sidebar .latest-posts article .post-content .meta_data li:first-child {
   padding-left: 0;
 }
 #footer {
