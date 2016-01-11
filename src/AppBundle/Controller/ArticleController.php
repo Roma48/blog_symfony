@@ -17,8 +17,9 @@ class ArticleController extends Controller
     {
         // replace this example code with whatever you need
         return $this->render('article/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-            'class' => $request->attributes->get('_route')
+                'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+                'class' => $request->attributes->get('_route'),
+                'title' => 'Home page'
             )
         );
     }
