@@ -34,7 +34,7 @@ class Image
 
     /**
      * @var
-     * @ORM\OneToOne(targetEntity="Article", inversedBy="id")
+     * @ORM\OneToOne(targetEntity="Article", mappedBy="image")
      */
     protected $article;
 
@@ -95,11 +95,13 @@ class Image
     }
 
     /**
-     * @param mixed $article
+     * @param Article $article
+     * @return $this
      */
-    public function setArticle($article)
+    public function addArticle(Article $article)
     {
         $this->article = $article;
+        return $this;
     }
 
 

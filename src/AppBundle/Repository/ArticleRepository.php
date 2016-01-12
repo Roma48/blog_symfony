@@ -14,6 +14,7 @@ class ArticleRepository extends EntityRepository
 
     /**
      * @param int $page
+     * @param int $limit
      * @return Paginator
      */
     public function getPage($page = 1, $limit = 9)

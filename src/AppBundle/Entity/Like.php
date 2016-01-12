@@ -22,7 +22,7 @@ class Like
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="Article", inversedBy="like")
+     * @ORM\ManyToOne(targetEntity="Article", inversedBy="id")
      */
     protected $article;
 
@@ -63,6 +63,7 @@ class Like
     public function setArticle(Article $article)
     {
         $this->article = $article;
+
         return $this;
     }
 
@@ -81,6 +82,7 @@ class Like
     public function setUser(User $user)
     {
         $this->user = $user;
+
         return $this;
     }
 

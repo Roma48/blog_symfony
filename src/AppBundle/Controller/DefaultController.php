@@ -15,9 +15,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['like' => 'DESC'], 5);
+//        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['likes' => 'DESC'], 5);
 
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage();
+        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findAll();
+
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
@@ -36,7 +38,7 @@ class DefaultController extends Controller
      */
     public function pageAction(Request $request, $number)
     {
-        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['like' => 'DESC'], 5);
+        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], [], 5);
 
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage($number);
         // replace this example code with whatever you need

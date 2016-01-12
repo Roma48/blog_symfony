@@ -69,4 +69,42 @@ class Comment
     {
         $this->message = $message;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     * @return $this
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+
+    /**
+     * @param Article $article
+     * @return $this
+     */
+    public function setArticle(Article $article)
+    {
+        $this->article = $article;
+        return $this;
+    }
+
+
 }

@@ -34,18 +34,6 @@ class User
     protected $lastName;
 
     /**
-     * @var
-     * @ORM\OneToMany(targetEntity="Like", mappedBy="id")
-     */
-    protected $like;
-
-    /**
-     * @var
-     * @ORM\OneToMany(targetEntity="Article", mappedBy="id")
-     */
-    protected $article;
-
-    /**
      * @return int
      */
     public function getId()
@@ -92,24 +80,4 @@ class User
     {
         $this->lastName = $lastName;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getLike()
-    {
-        return $this->like;
-    }
-
-    /**
-     * @param Like $like
-     * @return $this
-     */
-    public function setLike(Like $like)
-    {
-        $this->like = $like;
-        return $this;
-    }
-
-
 }

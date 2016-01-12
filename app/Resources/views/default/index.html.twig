@@ -7,7 +7,8 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     {% for slide in slides %}
-                        <div class="item {% if loop.first %}active{% endif %}" style="background-image: url('{{ slide.image }}')">
+
+                        <div class="item {% if loop.first %}active{% endif %}" style="background-image: url('{{ slide.image.image }}')">
                             <div class="dark-shadow">
                                 <div class="carousel-caption">
                                     <div class="container">
@@ -19,7 +20,7 @@
                                         <hr>
                                         <ul class="meta_data">
                                             <li class="author">
-                                                <a class="url fn" href="/"><span class="fa fa-user"></span>{{ slide.author }}</a>
+                                                <a class="url fn" href="/"><span class="fa fa-user"></span>{{ slide.user.firstName }}</a>
                                             </li>
                                             <li class="time">
                                                 <time class="value updated" datetime="2012-08-20">
@@ -27,12 +28,12 @@
                                                 </time>
                                             </li>
                                             <li class="comment">
-                                                <a href="/"><span class="fa fa-comment-o"></span>{{ slide.comments }}</a>
+                                                <a href="/"><span class="fa fa-comment-o"></span>{{ slide.comments|length }}</a>
                                             </li>
                                             <li class="like">
                                         <span class="like" data-post_id="20">
                                             <span class="fa fa-heart-o"></span>
-                                            <span class="count">{{ slide.like }}</span>
+                                            <span class="count">{{ slide.likes|length }}</span>
                                         </span>
                                             </li>
                                         </ul>
@@ -62,7 +63,7 @@
             {% for article in articles %}
                     <div class="item-block col col-lg-4">
                         <div class="inner">
-                            <div class="img" style="background-image: url('{{ article.preview }}')"></div>
+                            <div class="img" style="background-image: url('{{ article.image.preview }}')"></div>
                             <div class="inner-text">
                                 <a class="category" href="/"><i class="fa fa-{{ article.category.class }}"></i> Random</a>
                                 <a class="title" href="/article/{{ article.slug }}">{{ article.title }}</a>
@@ -74,16 +75,16 @@
                                     <ul class="meta_data">
                                         <li class="author">
                                             <a class="url fn" href="/">
-                                                <span class="fa fa-user"></span>{{ article.author }}
+                                                <span class="fa fa-user"></span>{{ article.user.firstName }}
                                             </a>
                                         </li>
                                         <li class="comment">
-                                            <a href="/"><span class="fa fa-comment-o"></span>{{ article.comments }}</a>
+                                            <a href="/"><span class="fa fa-comment-o"></span>{{ article.comments|length }}</a>
                                         </li>
                                         <li class="like">
                                             <span class="post-like">
                                                 <span class="fa fa-heart-o"></span>
-                                                <span class="count">{{ article.like }}</span>
+                                                <span class="count">{{ article.likes|length }}</span>
                                             </span>
                                         </li>
                                     </ul>
@@ -93,7 +94,7 @@
                     </div>
             {% endfor %}
         </div>
-            <div id="pagination">
+        <div id="pagination">
                 <div class="">
                     <ul class="pagination">
                         {% for page in 1..pages + 1 %}
