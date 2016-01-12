@@ -9,7 +9,8 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  * Class ArticleRepository
  * @package AppBundle\Repository
  */
-class ArticleRepository extends EntityRepository {
+class ArticleRepository extends EntityRepository
+{
 
     /**
      * @param int $page

@@ -1,0 +1,4 @@
+AppBundle\Entity\Image:
+  image{1..20}:
+    image: <imageUrl(1500, 500, 'cats')>
+    preview: <imageUrl(340, 240, 'cats')>

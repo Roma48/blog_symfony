@@ -15,7 +15,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $most_viewed = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['like' => 'DESC'], 5);
+        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['like' => 'DESC'], 5);
 
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage();
         // replace this example code with whatever you need
@@ -24,7 +24,7 @@ class DefaultController extends Controller
             'class' => 'homepage',
             'title' => 'Home page',
             'articles' => $articles,
-            'slides' => $most_viewed,
+            'slides' => $slides,
             'pages' => (int) count($articles)/9,
             'current' => 1
         ));
@@ -36,7 +36,7 @@ class DefaultController extends Controller
      */
     public function pageAction(Request $request, $number)
     {
-        $most_viewed = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['like' => 'DESC'], 5);
+        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['like' => 'DESC'], 5);
 
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage($number);
         // replace this example code with whatever you need
@@ -45,7 +45,7 @@ class DefaultController extends Controller
             'class' => 'homepage',
             'title' => 'Home page',
             'articles' => $articles,
-            'slides' => $most_viewed,
+            'slides' => $slides,
             'pages' => (int) count($articles)/9,
             'current' => $number
         ));

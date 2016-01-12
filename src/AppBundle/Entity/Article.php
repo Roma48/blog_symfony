@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use AppBundle\Entity\Category;
@@ -11,7 +12,8 @@ use AppBundle\Entity\Category;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ArticleRepository")
  */
-class Article {
+class Article
+{
 
     /**
      * @ORM\Column(type="integer")
@@ -46,27 +48,27 @@ class Article {
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="article")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="id")
      */
     protected $category;
 
     /**
      * @var
-     * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="id")
      */
     protected $comments;
 
     /**
      * @var
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="firstName")
      */
     protected $author;
 
     /**
      * @var
-     * @ORM\Column(name="rate", type="integer", options={"default" = 0})
+     * @ORM\OneToMany(targetEntity="Like", mappedBy="id")
      */
-    protected $like;
+    protected $likes;
 
     /**
      * @var
@@ -76,15 +78,16 @@ class Article {
 
     /**
      * @var String
-     * @ORM\Column(type="string")
+     * @ORM\OneToOne(targetEntity="Image", mappedBy="id")
      */
     protected $image;
 
-    /**
-     * @var String
-     * @ORM\Column(type="string")
-     */
-    protected $preview;
+
+    public function __construct()
+    {
+        $this->likes = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -95,11 +98,13 @@ class Article {
     }
 
     /**
-     * @param mixed $author
+     * @param User $author
+     * @return $this
      */
-    public function setAuthor($author)
+    public function setAuthor(User $author)
     {
         $this->author = $author;
+        return $this;
     }
 
     /**
@@ -210,11 +215,14 @@ class Article {
     }
 
     /**
-     * @param mixed $comments
+     * @param Comment $comment
+     * @return $this
      */
-    public function setComments($comments)
+    public function addComments(Comment $comment)
     {
-        $this->comments = $comments;
+        $comment->setComment($this);
+        $this->comments->add($comment);
+        return $this;
     }
 
     /**
@@ -226,11 +234,22 @@ class Article {
     }
 
     /**
-     * @param mixed $like
+     * @param Like $like
+     * @return $this
      */
-    public function setLike($like)
+    public function addLike(Like $like)
     {
-        $this->like = $like;
+        $like->setLike($this);
+        $this->likes->add($like);
+        return $this;
+    }
+
+    /**
+     * @param Like $like
+     */
+    public function removeLike(Like $like)
+    {
+        $this->like->removeElement($like);
     }
 
     /**
@@ -264,23 +283,5 @@ class Article {
     {
         $this->image = $image;
     }
-
-    /**
-     * @return String
-     */
-    public function getPreview()
-    {
-        return $this->preview;
-    }
-
-    /**
-     * @param String $preview
-     */
-    public function setPreview($preview)
-    {
-        $this->preview = $preview;
-    }
-
-
 
 }

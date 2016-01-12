@@ -11,7 +11,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity()
  * @ORM\Table()
  */
-class Category {
+class Category
+{
 
     /**
      * @ORM\Column(type="integer")
