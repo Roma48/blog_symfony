@@ -6,42 +6,41 @@
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active" style="background-image: url('{{ asset('img/slide1.jpg') }}')">
-                        <div class="dark-shadow">
-                            <div class="carousel-caption">
-                                <div class="container">
-                                    <a class="category" href="/"><i class="fa fa-random"></i> Random</a>
+                    {% for slide in slides %}
+                        <div class="item {% if loop.first %}active{% endif %}" style="background-image: url('{{ slide.image }}')">
+                            <div class="dark-shadow">
+                                <div class="carousel-caption">
+                                    <div class="container">
+                                        <a class="category" href="/"><i class="fa fa-{{ slide.category.class }}"></i> Random</a>
 
-                                    <h3>Flying to the US is becoming more inconvenient as TSA bans uncharged devices
-                                        from
-                                        flights</h3>
+                                        <a href="/article/{{ slide.slug }}"><h3>{{ slide.title }}</h3></a>
 
-                                    <p>Curabitur ut malesuada elit. Nullam tortor mi</p>
-                                    <hr>
-                                    <ul class="meta_data">
-                                        <li class="author">
-                                            <a class="url fn" href="/"><span
-                                                        class="fa fa-user"></span>mostafamabrouk</a>
-                                        </li>
-                                        <li class="time">
-                                            <time class="value updated" datetime="2012-08-20">
-                                                <span class="fa fa-calendar-o"></span>August 20, 2012
-                                            </time>
-                                        </li>
-                                        <li class="comment">
-                                            <a href="/"><span class="fa fa-comment-o"></span>20</a>
-                                        </li>
-                                        <li class="like">
+                                        <p>{{ slide.description }}</p>
+                                        <hr>
+                                        <ul class="meta_data">
+                                            <li class="author">
+                                                <a class="url fn" href="/"><span class="fa fa-user"></span>{{ slide.author }}</a>
+                                            </li>
+                                            <li class="time">
+                                                <time class="value updated" datetime="2012-08-20">
+                                                    <span class="fa fa-calendar-o"></span>August 20, 2012
+                                                </time>
+                                            </li>
+                                            <li class="comment">
+                                                <a href="/"><span class="fa fa-comment-o"></span>{{ slide.comments }}</a>
+                                            </li>
+                                            <li class="like">
                                         <span class="like" data-post_id="20">
                                             <span class="fa fa-heart-o"></span>
-                                            <span class="count">0</span>
+                                            <span class="count">{{ slide.like }}</span>
                                         </span>
-                                        </li>
-                                    </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
 
                 <!-- Left and right controls -->
@@ -60,33 +59,35 @@
     {% block content %}
         <div class="content">
 
-            {% for i in 0..8 %}
+            {% for article in articles %}
                     <div class="item-block col col-lg-4">
                         <div class="inner">
-                            <div class="img" style="background-image: url('{{ asset('img/slide1.jpg') }}')"></div>
+                            <div class="img" style="background-image: url('{{ article.preview }}')"></div>
                             <div class="inner-text">
-                                <a class="category" href="/"><i class="fa fa-random"></i> Random</a>
-                                <a class="title" href="/">Fly Directly Into a Fireworks Display With This Drone
-                                    Footage</a>
+                                <a class="category" href="/"><i class="fa fa-{{ article.category.class }}"></i> Random</a>
+                                <a class="title" href="/article/{{ article.slug }}">{{ article.title }}</a>
 
-                                <p class="desc">Cras sit amet libero eros, in ultricies lorem. Nunc et odio neque.
-                                    Maecenas vehicula interdum hendrerit. Integer hendrerit orci ullamcorper neque
-                                    pellentesque feugiat. Aliquam magna metus</p>
-                                <hr>
-                                <ul class="meta_data">
-                                    <li class="author">
-                                        <a class="url fn" href="/"><span class="fa fa-user"></span>mostafamabrouk</a>
-                                    </li>
-                                    <li class="comment">
-                                        <a href="/"><span class="fa fa-comment-o"></span>19</a>
-                                    </li>
-                                    <li class="like">
-                                <span class="post-like">
-                                    <span class="fa fa-heart-o"></span>
-                                    <span class="count">3</span>
-                                </span>
-                                    </li>
-                                </ul>
+                                <p class="desc">{{ article.description }}...</p>
+
+                                <div class="item-footer">
+                                    <hr>
+                                    <ul class="meta_data">
+                                        <li class="author">
+                                            <a class="url fn" href="/">
+                                                <span class="fa fa-user"></span>{{ article.author }}
+                                            </a>
+                                        </li>
+                                        <li class="comment">
+                                            <a href="/"><span class="fa fa-comment-o"></span>{{ article.comments }}</a>
+                                        </li>
+                                        <li class="like">
+                                            <span class="post-like">
+                                                <span class="fa fa-heart-o"></span>
+                                                <span class="count">{{ article.like }}</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -95,10 +96,13 @@
             <div id="pagination">
                 <div class="">
                     <ul class="pagination">
-                        <li><span class="page-numbers current"><span class="num">1</span></span></li>
-                        <li><a class="page-numbers" href="/"><span class="num">2</span></a></li>
-                        <li><a class="page-numbers" href="/"><span class="num">3</span></a></li>
-                        <li><a class="next page-numbers" href="/"><span class="num fa fa-angle-right"></span></a></li>
+                        {% for page in 1..pages + 1 %}
+                            {% if page == current %}
+                                <li><span class="page-numbers current"><span class="num">{{ page }}</span></span></li>
+                            {% else %}
+                                <li><a class="page-numbers" href="/page/{{ page }}"><span class="num">{{ page }}</span></a></li>
+                            {% endif %}
+                        {% endfor %}
                     </ul>
                 </div>
         </div>

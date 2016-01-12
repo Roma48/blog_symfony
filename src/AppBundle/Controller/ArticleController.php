@@ -10,16 +10,20 @@ use Symfony\Component\HttpFoundation\Request;
 class ArticleController extends Controller
 {
     /**
-     * @Route("/article", name="article")
+     * @Route("/article/{slug}", name="article")
      * @Template()
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, $slug)
     {
+        $article = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy(array('slug' => $slug));
+        $most_viewed = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['like' => 'DESC'], 5);
         // replace this example code with whatever you need
         return $this->render('article/index.html.twig', array(
                 'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
                 'class' => $request->attributes->get('_route'),
-                'title' => 'Article'
+                'title' => 'Article',
+                'article' => $article[0],
+                'popular' => $most_viewed
             )
         );
     }

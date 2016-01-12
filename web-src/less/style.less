@@ -282,32 +282,40 @@ h1, h2, h3, h4, h5, h6 {
             line-height: 1.7;
           }
 
-          hr {
-            margin: 10px 0;
-          }
+          .item-footer {
+            position: absolute;
+            bottom: 15px;
+            background: white;
+            z-index: 2;
+            width: 80%;
 
-          .meta_data {
-            display: inline-block;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            text-align: center;
+            hr {
+              margin: 10px 0;
+            }
 
-            li {
+            .meta_data {
               display: inline-block;
-              padding: 0 15px;
-              border-right: 1px solid #eee;
+              padding: 0;
+              margin: 0;
+              width: 100%;
+              text-align: center;
 
-              span, a {
-                color: #999;
-              }
+              li {
+                display: inline-block;
+                padding: 0 15px;
+                border-right: 1px solid #eee;
 
-              .fa {
-                margin-right: 5px;
-              }
+                span, a {
+                  color: #999;
+                }
 
-              &:last-child {
-                border-right: none;
+                .fa {
+                  margin-right: 5px;
+                }
+
+                &:last-child {
+                  border-right: none;
+                }
               }
             }
           }

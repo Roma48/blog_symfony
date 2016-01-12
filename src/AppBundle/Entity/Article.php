@@ -9,6 +9,7 @@ use AppBundle\Entity\Category;
 /**
  * @ORM\Entity()
  * @ORM\Table()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ArticleRepository")
  */
 class Article {
 
@@ -27,7 +28,7 @@ class Article {
 
     /**
      * @ORM\Column()
-     * @Gedmo\Slug(fields={"title", "code"})
+     * @Gedmo\Slug(fields={"title"})
      */
     protected $slug;
 
@@ -51,7 +52,7 @@ class Article {
 
     /**
      * @var
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
     protected $comments;
 
@@ -63,15 +64,27 @@ class Article {
 
     /**
      * @var
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="rate", type="integer", options={"default" = 0})
      */
     protected $like;
 
     /**
      * @var
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
     protected $views;
+
+    /**
+     * @var String
+     * @ORM\Column(type="string")
+     */
+    protected $image;
+
+    /**
+     * @var String
+     * @ORM\Column(type="string")
+     */
+    protected $preview;
 
     /**
      * @return mixed
@@ -235,4 +248,39 @@ class Article {
     {
         $this->views = $views;
     }
+
+    /**
+     * @return String
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param String $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return String
+     */
+    public function getPreview()
+    {
+        return $this->preview;
+    }
+
+    /**
+     * @param String $preview
+     */
+    public function setPreview($preview)
+    {
+        $this->preview = $preview;
+    }
+
+
+
 }

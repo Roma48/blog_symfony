@@ -1,12 +1,13 @@
 AppBundle\Entity\Article:
   article{1..10}:
-    title: test
-    slug: <customSlug($title)>
-    description: test
-    content: test
-    author: test
-    like: test
-    views: test
-    comments: test
+    title: <realText($maxNbChars = 40, $indexSize = 2)>
+    description: <realText($maxNbChars = 200, $indexSize = 2)>
+    content: <realText($maxNbChars = 2000, $indexSize = 2)>
+    author: <firstName()>
+    like: <numberBetween(1, 60)>
+    views: <numberBetween(1, 60)>
+    comments: <numberBetween(1, 60)>
     category: @category*
+    image: <imageUrl(1500, 500, 'cats')>
+    preview: <imageUrl(340, 240, 'cats')>
 
