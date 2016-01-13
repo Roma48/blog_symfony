@@ -35,7 +35,7 @@ class Category
 
     /**
      * @var
-     * @ORM\OneToOne(targetEntity="Article", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="category")
      */
     protected $article;
     /**

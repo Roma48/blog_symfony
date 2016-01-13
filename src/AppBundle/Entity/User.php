@@ -40,6 +40,11 @@ class User
     protected $article;
 
     /**
+     * @var
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Like", mappedBy="user")
+     */
+    protected $like;
+    /**
      * @return int
      */
     public function getId()

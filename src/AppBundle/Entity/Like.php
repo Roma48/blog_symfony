@@ -28,7 +28,7 @@ class Like
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="like")
      */
     protected $user;
 

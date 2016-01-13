@@ -28,7 +28,7 @@ class Comment
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="article")
      */
     protected $user;
 
