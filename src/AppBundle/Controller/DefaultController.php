@@ -11,14 +11,13 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
-     * @Template()
      */
     public function indexAction(Request $request)
     {
 //        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['likes' => 'DESC'], 5);
 
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage();
-        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findAll();
+//        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findAll();
 
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
@@ -26,7 +25,7 @@ class DefaultController extends Controller
             'class' => 'homepage',
             'title' => 'Home page',
             'articles' => $articles,
-            'slides' => $slides,
+//            'slides' => $slides,
             'pages' => (int) count($articles)/9,
             'current' => 1
         ));

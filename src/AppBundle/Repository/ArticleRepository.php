@@ -14,18 +14,21 @@ class ArticleRepository extends EntityRepository
 
     /**
      * @param int $page
-     * @param int $limit
      * @return Paginator
      */
-    public function getPage($page = 1, $limit = 9)
+    public function getPage($page = 1)
     {
+        $limit = 9;
         $query = $this->createQueryBuilder('t')
-            ->select('t')
+            ->select('t, i, c')
+            ->leftJoin('t.image', 'i')
+            ->leftJoin('t.category', 'c')
             ->setMaxResults($limit)
             ->setFirstResult($page * $limit - $limit)
         ;
 
-        $paginator = new Paginator($query, $fetchJoinCollection = true);
+        $paginator = new Paginator($query, $fetchJoinCollection = false);
+        $paginator->setUseOutputWalkers(false);
 
         return $paginator;
     }

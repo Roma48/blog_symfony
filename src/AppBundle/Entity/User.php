@@ -34,6 +34,12 @@ class User
     protected $lastName;
 
     /**
+     * @var
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="user")
+     */
+    protected $article;
+
+    /**
      * @return int
      */
     public function getId()

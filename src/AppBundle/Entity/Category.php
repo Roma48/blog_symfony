@@ -34,6 +34,11 @@ class Category
     protected $class;
 
     /**
+     * @var
+     * @ORM\OneToOne(targetEntity="Article", mappedBy="category")
+     */
+    protected $article;
+    /**
      * @return mixed
      */
     public function getId()

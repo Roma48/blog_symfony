@@ -47,7 +47,7 @@ class Article
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="name")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="article")
      */
     protected $category;
 

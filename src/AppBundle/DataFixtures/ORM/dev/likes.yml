@@ -1,4 +1,0 @@
-AppBundle\Entity\Likes:
-  likes_{1..100}:
-    article: @article*
-    user: @user*

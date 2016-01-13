@@ -34,7 +34,7 @@ class Comment
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="Article", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Article", inversedBy="comments")
      */
     protected $article;
 

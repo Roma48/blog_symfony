@@ -22,7 +22,7 @@ class Like
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="Article", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Article", inversedBy="likes")
      */
     protected $article;
 
