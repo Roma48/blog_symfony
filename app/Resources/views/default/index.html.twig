@@ -6,42 +6,42 @@
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    {#{% for slide in slides %}#}
+                    {% for slide in slides %}
 
-                        {#<div class="item {% if loop.first %}active{% endif %}" style="background-image: url('{{ slide.image.image }}')">#}
-                            {#<div class="dark-shadow">#}
-                                {#<div class="carousel-caption">#}
-                                    {#<div class="container">#}
-                                        {#<a class="category" href="/"><i class="fa fa-{{ slide.category.class }}"></i> Random</a>#}
+                        <div class="item {% if loop.first %}active{% endif %}" style="background-image: url('{{ slide.image.image }}')">
+                            <div class="dark-shadow">
+                                <div class="carousel-caption">
+                                    <div class="container">
+                                        <a class="category" href="/"><i class="fa fa-{{ slide.category.class }}"></i> Random</a>
 
-                                        {#<a href="/article/{{ slide.slug }}"><h3>{{ slide.title }}</h3></a>#}
+                                        <a href="/article/{{ slide.slug }}"><h3>{{ slide.title }}</h3></a>
 
-                                        {#<p>{{ slide.description }}</p>#}
-                                        {#<hr>#}
-                                        {#<ul class="meta_data">#}
-                                            {#<li class="author">#}
-                                                {#<a class="url fn" href="/"><span class="fa fa-user"></span>{{ slide.user.firstName }}</a>#}
-                                            {#</li>#}
-                                            {#<li class="time">#}
-                                                {#<time class="value updated" datetime="2012-08-20">#}
-                                                    {#<span class="fa fa-calendar-o"></span>August 20, 2012#}
-                                                {#</time>#}
-                                            {#</li>#}
-                                            {#<li class="comment">#}
-                                                {#<a href="/"><span class="fa fa-comment-o"></span>{{ slide.comments|length }}</a>#}
-                                            {#</li>#}
-                                            {#<li class="like">#}
-                                        {#<span class="like" data-post_id="20">#}
-                                            {#<span class="fa fa-heart-o"></span>#}
-                                            {#<span class="count">{{ slide.likes|length }}</span>#}
-                                        {#</span>#}
-                                            {#</li>#}
-                                        {#</ul>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#{% endfor %}#}
+                                        <p>{{ slide.description }}</p>
+                                        <hr>
+                                        <ul class="meta_data">
+                                            <li class="author">
+                                                <a class="url fn" href="/"><span class="fa fa-user"></span>{{ slide.user.firstName }}</a>
+                                            </li>
+                                            <li class="time">
+                                                <time class="value updated" datetime="2012-08-20">
+                                                    <span class="fa fa-calendar-o"></span>August 20, 2012
+                                                </time>
+                                            </li>
+                                            <li class="comment">
+                                                <a href="/"><span class="fa fa-comment-o"></span>{{ slide.comments|length }}</a>
+                                            </li>
+                                            <li class="like">
+                                        <span class="like" data-post_id="20">
+                                            <span class="fa fa-heart-o"></span>
+                                            <span class="count">{{ slide.likes|length }}</span>
+                                        </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
 
                 <!-- Left and right controls -->

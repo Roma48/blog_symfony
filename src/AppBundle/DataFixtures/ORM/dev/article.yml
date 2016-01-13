@@ -6,6 +6,6 @@ AppBundle\Entity\Article:
     views: <numberBetween(1, 60)>
     category: @category*
     image (unique): @image*
-    user: @user*
+    user (unique): @user*
 
 

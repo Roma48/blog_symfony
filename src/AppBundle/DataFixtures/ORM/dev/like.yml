@@ -1,4 +1,4 @@
 AppBundle\Entity\Like:
-  like_{1..100}:
-    article: @article*
-    user: @user*
+  like_{1..20}:
+    article (unique): @article*
+    user (unique): @user*

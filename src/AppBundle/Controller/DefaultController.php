@@ -14,7 +14,8 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-//        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['likes' => 'DESC'], 5);
+        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->getSlides();
+
 
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage();
 //        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findAll();
@@ -25,7 +26,7 @@ class DefaultController extends Controller
             'class' => 'homepage',
             'title' => 'Home page',
             'articles' => $articles,
-//            'slides' => $slides,
+            'slides' => $slides,
             'pages' => (int) count($articles)/9,
             'current' => 1
         ));
