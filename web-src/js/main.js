@@ -37,4 +37,10 @@
     //    }
     //});
 
+    $('.admin-menu > li > a').click(function(e){
+        e.preventDefault();
+
+        $(this).parent().find('.sub-menu').slideToggle();
+    });
+
 }(jQuery));
