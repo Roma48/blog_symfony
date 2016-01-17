@@ -9,7 +9,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  * Class ArticleRepository
  * @package AppBundle\Repository
  */
-class ArticleRepository extends EntityRepository
+class CategoryRepository extends EntityRepository
 {
 
     /**
@@ -40,9 +40,9 @@ class ArticleRepository extends EntityRepository
     /**
      * @return array
      */
-    public function getSlides()
+    public function getSlides($slug)
     {
-        $query = $this->createQueryBuilder('a')
+        $query = $this->createQueryBuilder('c')
             ->select('a, image, comments, user, category, COUNT(likes) AS HIDDEN cnt')
             ->leftJoin('a.image', 'image')
             ->leftJoin('a.category', 'category')

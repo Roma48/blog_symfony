@@ -38,7 +38,7 @@ class DefaultController extends Controller
      */
     public function pageAction(Request $request, $number)
     {
-        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], [], 5);
+        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->getSlides();
 
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage($number);
         // replace this example code with whatever you need

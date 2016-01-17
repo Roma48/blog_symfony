@@ -1,95 +1,49 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body class="admin">
 
-    {% block header_image %}
-        <div id="header-image">
-            <div class="image-wrapper" style="background-image: url('{{ article.image }}')">
-                <div class="dark-shadow">
-                    <div class="container">
-                        <div class="article-caption">
-
-                            <a class="category" href="/"><i class="fa fa-{{ article.category.class }}"></i> Random</a>
-
-                            <h3>{{ article.title }}</h3>
-
-                            <p>{{ article.description }}</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endblock header_image %}
-
-    {% block content %}
-
-        <div class="content col col-lg-8">
-            <div class="meta_data">
-                        <ul>
-                            <li class="author"><a class="url fn" href="/">
-                                    <span class="fa fa-user"></span>{{ article.author }}
-                                </a>
-                            </li>
-                            <li class="time">
-                                <time class="value updated" datetime="2013-07-20">
-                                    <span class="fa fa-calendar-o"></span>
-                                    July
-                                    20, 2013, 2 years ago
-                                </time>
-                            </li>
-                            <li class="comment">
-                                <a href="/">
-                                    <span class="fa fa-comment-o"></span>{{ article.comments }}
-                                </a>
-                            </li>
-                            <li class="like">
-                                <span class="post-like">
-                                    <span class="fa fa-heart-o"></span>
-                                    <span class="count">{{ article.like }}</span>
-                                </span>
-                            </li>
-                            <li class="views">
-                                <span class="fa fa-eye"></span>
-                                <span class="views">{{ article.views }}</span>
-                            </li>
+        <div class="col col-lg-2" id="sidebar">
+            <div class="container">
+                <a href="/" id="logo"><img src="{{ asset('img/crystal-white.png') }}" alt="Logo"></a>
+                <ul class="admin-menu">
+                    <li><a href="#">Articles</a>
+                        <ul class="sub-menu">
+                            <li><a href="/admin/article/new">Add New</a></li>
+                            <li><a href="/admin/articles/1">All Articles</a></li>
+                            <li><a href="/admin/article/categories">Categories</a></li>
                         </ul>
-                    </div>
-            <div class="article-text">
-                      {{ article.content }}
+                    </li>
+                    <li><a href="#">Users</a>
+                        <ul class="sub-menu">
+                            <li><a href="/admin/user/new">Add New</a></li>
+                            <li><a href="/admin/users">All Users</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
-    {% endblock content %}
 
-    {% block sidebar %}
-        <div class="sidebar col col-lg-4">
-                   <div class="latest-posts">
+        <div class="col col-lg-10" id="content">
+            <div class="container">
+                {% block content %}{% endblock content %}
 
-                       {% for article in popular %}
-                           <article>
-                               <div class="thumb-hover">
-                                   <img width="100" height="100"
-                                        src="{{ article.preview }}">
-                               </div>
-                               <div class="post-content">
-                                   <h3><a href="/">{{ article.title }}</a>
-                                   </h3>
-                                   <ul class="meta_data">
-                                       <li class="category">
-                                           <a href="/" class="c5-meta-cat category-5">
-                                               <span class="fa fa-{{ article.category.class }}"></span>Random
-                                           </a>
-                                       </li>
-                                       <li class="like">
-                                    <span class="c5-post-like">
-                                        <span class="fa fa-heart-o"></span>
-                                        <span class="count">{{ article.like }}</span>
-                                    </span>
-                                       </li>
-                                   </ul>
-                                   <div class="clearfix"></div>
-                               </div>
-                           </article>
-                       {% endfor %}
-                   </div>
-               </div>
-    {% endblock sidebar %}
+                {% block pagination %}{% endblock pagination %}
+
+            </div>
+        </div>
+
+        {% block javascript %}
+            <script src="{{ asset('js/main.min.js') }}"></script>
+        {% endblock %}
+</body>
+</html>
 
