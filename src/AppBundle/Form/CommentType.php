@@ -11,41 +11,30 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ArticleType extends AbstractType
+class CommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add("title", TextType::class, [
-                'label' => 'Title',
+            ->add("message", TextareaType::class, [
+                'label' => 'Message',
                 'attr' => ['class' => 'form-control']
             ])
-            ->add("description", TextareaType::class, [
-                'label' => 'Description',
-                'attr' => ['class' => 'form-control']
-            ])
-            ->add("content", TextareaType::class, [
-                'label' => 'Content',
-                'attr' => ['class' => 'form-control']
-            ])
-            ->add("image", ImageType::class, [
-                'label' => ' '
-            ])
-            ->add("category", EntityType::class, [
-                'choice_label' => 'name',
+            ->add("article", EntityType::class, [
+                'choice_label' => 'title',
                 'attr' => ['class' => 'form-control'],
-                'class' => 'AppBundle\Entity\Category'
+                'class' => 'AppBundle\Entity\Article'
             ])
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\Article'
+            'data_class' => 'AppBundle\Entity\Comment'
         ]);
     }
     public function getName()
     {
-        return 'article';
+        return 'comment';
     }
 }

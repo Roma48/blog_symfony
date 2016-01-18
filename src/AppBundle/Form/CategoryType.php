@@ -11,41 +11,29 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ArticleType extends AbstractType
+class CategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add("title", TextType::class, [
-                'label' => 'Title',
+            ->add("name", TextType::class, [
+                'label' => 'Name',
                 'attr' => ['class' => 'form-control']
             ])
-            ->add("description", TextareaType::class, [
-                'label' => 'Description',
+            ->add("class", TextType::class, [
+                'label' => 'Class',
                 'attr' => ['class' => 'form-control']
-            ])
-            ->add("content", TextareaType::class, [
-                'label' => 'Content',
-                'attr' => ['class' => 'form-control']
-            ])
-            ->add("image", ImageType::class, [
-                'label' => ' '
-            ])
-            ->add("category", EntityType::class, [
-                'choice_label' => 'name',
-                'attr' => ['class' => 'form-control'],
-                'class' => 'AppBundle\Entity\Category'
             ])
         ;
     }
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\Article'
+            'data_class' => 'AppBundle\Entity\Category'
         ]);
     }
     public function getName()
     {
-        return 'article';
+        return 'category';
     }
 }

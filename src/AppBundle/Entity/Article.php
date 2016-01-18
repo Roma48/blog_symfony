@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use AppBundle\Entity\Image;
 
 /**
  * @ORM\Entity()
@@ -71,15 +72,15 @@ class Article
 
     /**
      * @var
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $views;
 
-//    /**
-//     * @var
-//     * @ORM\OneToOne(targetEntity="Image", inversedBy="article")
-//     */
-//    protected $image;
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="Image", inversedBy="article", cascade={"persist"})
+     */
+    protected $image;
 
 
     public function __construct()

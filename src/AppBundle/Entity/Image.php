@@ -5,12 +5,13 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Entity\Article;
 
 /**
  * Class Image
  * @package AppBundle\Entity
  * @ORM\Table()
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ImageRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Image
@@ -34,6 +35,12 @@ class Image
     private $file;
 
     private $temp;
+
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="image", cascade={"persist"})
+     */
+    protected $article;
 
     /**
      * @return null|string

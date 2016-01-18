@@ -2,7 +2,10 @@
 
     {% block header_image %}
         <div id="header-image">
-            <div class="image-wrapper" style="background-image: url('{{ article.image.image }}')">
+            {#<div class="image-wrapper" style="background-image: url('{{ asset('uploads/') }}{{ article.image.path }}')">#}
+                {# FOR FIXTURES #}
+            <div class="image-wrapper" style="background-image: url('{{ article.image.path }}')">
+                {# FOR FIXTURES #}
                 <div class="dark-shadow">
                     <div class="container">
                         <div class="article-caption">
@@ -67,7 +70,7 @@
                            <article>
                                <div class="thumb-hover">
                                    <img width="100" height="100"
-                                        src="{{ article.image.preview }}">
+                                        src="{{ article.image.path }}">
                                </div>
                                <div class="post-content">
                                    <h3><a href="/">{{ article.title }}</a>

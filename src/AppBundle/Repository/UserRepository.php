@@ -6,10 +6,10 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
- * Class CategoryRepository
+ * Class UserRepository
  * @package AppBundle\Repository
  */
-class CategoryRepository extends EntityRepository
+class UserRepository extends EntityRepository
 {
 
     /**
@@ -19,14 +19,8 @@ class CategoryRepository extends EntityRepository
     public function getPage($page = 1)
     {
         $limit = 9;
-        $query = $this->createQueryBuilder('t')
-            ->select('t, image, category, user, comments, likes')
-            ->leftJoin('t.image', 'image')
-            ->leftJoin('t.category', 'category')
-            ->leftJoin('t.user', 'user')
-            ->leftJoin('t.likes', 'likes')
-            ->leftJoin('t.comments', 'comments')
-            ->groupBy('t.id')
+        $query = $this->createQueryBuilder('user')
+            ->select('user')
             ->setMaxResults($limit)
             ->setFirstResult($page * $limit - $limit)
         ;
