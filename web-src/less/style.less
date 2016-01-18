@@ -644,6 +644,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 100vh;
     background: #23282d;
     padding-top: 40px;
+    position: fixed;
 
     .container {
       max-width: 100%;
@@ -710,9 +711,19 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   #content {
+    float: right;
     .container {
       width: 100%;
       padding-top: 15px;
+
+      input[type="submit"] {
+        margin-top: 20px;
+      }
+
+      td.image img {
+        max-height: 200px;
+        width: auto;
+      }
 
       #pagination {
         width: 100%;
