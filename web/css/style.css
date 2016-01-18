@@ -8893,3 +8893,67 @@ h6 {
   -ms-transition: all .2s ease;
   transition: all .2s ease;
 }
+.admin #sidebar {
+  height: 100vh;
+  background: #23282d;
+  padding-top: 40px;
+}
+.admin #sidebar .container {
+  max-width: 100%;
+}
+.admin #sidebar .container #logo {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.admin #sidebar .container ul.admin-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.admin #sidebar .container ul.admin-menu > li {
+  display: block;
+  width: 100%;
+}
+.admin #sidebar .container ul.admin-menu > li a {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid white;
+  padding: 10px 40px;
+  color: white;
+  text-decoration: none;
+}
+.admin #sidebar .container ul.admin-menu > li:first-child > a {
+  border-top: 1px solid white;
+}
+ > .admin #sidebar .container ul.admin-menu > li:last-child ul.sub-menu li:last-child a {
+  border-bottom: none;
+}
+.admin #sidebar .container ul.admin-menu > li ul.sub-menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: #32373c;
+  display: none;
+}
+.admin #sidebar .container ul.admin-menu > li ul.sub-menu li a {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid white;
+  padding: 10px 40px 10px 60px;
+  color: white;
+  text-decoration: none;
+}
+.admin #content .container {
+  width: 100%;
+  padding-top: 15px;
+}
+.admin #content .container #pagination {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+.admin #content .container #pagination .current {
+  color: silver;
+}

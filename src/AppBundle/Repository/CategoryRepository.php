@@ -1,13 +1,17 @@
 <?php
+
 namespace AppBundle\Repository;
+
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Tools\Pagination\Paginator;
+
 /**
  * Class ArticleRepository
  * @package AppBundle\Repository
  */
-class ArticleRepository extends EntityRepository
+class CategoryRepository extends EntityRepository
 {
+
     /**
      * @param int $page
      * @return Paginator
@@ -26,16 +30,19 @@ class ArticleRepository extends EntityRepository
             ->setMaxResults($limit)
             ->setFirstResult($page * $limit - $limit)
         ;
+
         $paginator = new Paginator($query, $fetchJoinCollection = false);
         $paginator->setUseOutputWalkers(false);
+
         return $paginator;
     }
+
     /**
      * @return array
      */
-    public function getSlides()
+    public function getSlides($slug)
     {
-        $query = $this->createQueryBuilder('a')
+        $query = $this->createQueryBuilder('c')
             ->select('a, image, comments, user, category, COUNT(likes) AS HIDDEN cnt')
             ->leftJoin('a.image', 'image')
             ->leftJoin('a.category', 'category')
@@ -47,31 +54,7 @@ class ArticleRepository extends EntityRepository
             ->orderBy('cnt', 'ASC')
             ->getQuery()
             ->getResult();
+
         return $query;
-    }
-    /**
-     * @param string $slug
-     * @param int $page
-     * @return Paginator
-     */
-    public function findByCategory($slug = '', $page = 1)
-    {
-        $limit = 9;
-        $query = $this->createQueryBuilder('t')
-            ->select('t, image, category, user, comments, likes')
-            ->leftJoin('t.image', 'image')
-            ->leftJoin('t.category', 'category')
-            ->leftJoin('t.user', 'user')
-            ->leftJoin('t.likes', 'likes')
-            ->leftJoin('t.comments', 'comments')
-            ->where('category.class = ?1')
-            ->setParameter(1, $slug)
-            ->groupBy('t.id')
-            ->setMaxResults($limit)
-            ->setFirstResult($page * $limit - $limit)
-        ;
-        $paginator = new Paginator($query, $fetchJoinCollection = true);
-        $paginator->setUseOutputWalkers(false);
-        return $paginator;
     }
 }

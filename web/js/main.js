@@ -42,4 +42,10 @@ void 0===c?d&&"get"in d&&null!==(e=d.get(a,b))?e:(e=n.find.attr(a,b),null==e?voi
     //    }
     //});
 
+    $('.admin-menu > li > a').click(function(e){
+        e.preventDefault();
+
+        $(this).parent().find('.sub-menu').slideToggle();
+    });
+
 }(jQuery));
