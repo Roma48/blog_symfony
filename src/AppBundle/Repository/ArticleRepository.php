@@ -19,16 +19,16 @@ class ArticleRepository extends EntityRepository
     public function getPage($page = 1)
     {
         $limit = 9;
-        $query = $this->createQueryBuilder('t')
-            ->select('t, image, category, user, comments, likes')
-            ->leftJoin('t.image', 'image')
-            ->leftJoin('t.category', 'category')
-            ->leftJoin('t.user', 'user')
-            ->leftJoin('t.likes', 'likes')
-            ->leftJoin('t.comments', 'comments')
+        $query = $this->createQueryBuilder('article')
+            ->select('article, image, category, user, comments, likes')
+            ->leftJoin('article.image', 'image')
+            ->leftJoin('article.category', 'category')
+            ->leftJoin('article.user', 'user')
+            ->leftJoin('article.likes', 'likes')
+            ->leftJoin('article.comments', 'comments')
+            ->groupBy('article.id')
             ->setMaxResults($limit)
-            ->setFirstResult($page * $limit - $limit)
-        ;
+            ->setFirstResult($page * $limit - $limit);
 
         $paginator = new Paginator($query, $fetchJoinCollection = false);
         $paginator->setUseOutputWalkers(false);
@@ -41,15 +41,15 @@ class ArticleRepository extends EntityRepository
      */
     public function getSlides()
     {
-        $query = $this->createQueryBuilder('a')
-            ->select('a, image, comments, user, category, COUNT(likes.id) AS HIDDEN count')
-            ->leftJoin('a.image', 'image')
-            ->leftJoin('a.category', 'category')
-            ->leftJoin('a.user', 'user')
-            ->leftJoin('a.comments', 'comments')
-            ->join('a.likes', 'likes')
-            ->groupBy('a.id')
-//            ->orderBy('count', 'DESC')
+        $query = $this->createQueryBuilder('article')
+            ->select('article, image, comments, user, category, COUNT(likes.id) AS HIDDEN cnt')
+            ->leftJoin('article.image', 'image')
+            ->leftJoin('article.category', 'category')
+            ->leftJoin('article.user', 'user')
+            ->leftJoin('article.comments', 'comments')
+            ->join('article.likes', 'likes')
+            ->orderBy('cnt', 'DESC')
+            ->groupBy('article.id')
             ->setMaxResults(5)
             ->getQuery()
             ->getResult();

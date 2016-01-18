@@ -11,7 +11,6 @@ class ArticleController extends Controller
 {
     /**
      * @Route("/article/{slug}", name="article")
-     * @Template()
      */
     public function indexAction(Request $request, $slug)
     {

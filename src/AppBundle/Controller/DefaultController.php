@@ -16,11 +16,8 @@ class DefaultController extends Controller
     {
         $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->getSlides();
 
-
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage();
-//        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findAll();
 
-        // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'class' => 'homepage',
@@ -34,14 +31,13 @@ class DefaultController extends Controller
 
     /**
      * @Route("/page/{number}", name="pagination")
-     * @Template()
      */
     public function pageAction(Request $request, $number)
     {
-        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], [], 5);
+        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->getSlides();
 
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage($number);
-        // replace this example code with whatever you need
+
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'class' => 'homepage',
