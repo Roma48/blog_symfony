@@ -15,7 +15,7 @@ class ArticleController extends Controller
     public function indexAction(Request $request, $slug)
     {
         $article = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy(array('slug' => $slug));
-        $most_viewed = $this->getDoctrine()->getRepository('AppBundle:Article')->findBy([], ['like' => 'DESC'], 5);
+        $most_viewed = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage();
         // replace this example code with whatever you need
         return $this->render('article/index.html.twig', array(
                 'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),

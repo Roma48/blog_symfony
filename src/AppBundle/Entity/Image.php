@@ -3,12 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Image
  * @package AppBundle\Entity
  * @ORM\Table()
  * @ORM\Entity()
+ * @ORM\HasLifecycleCallbacks
  */
 class Image
 {
@@ -21,22 +24,130 @@ class Image
     protected $id;
 
     /**
-     * @var String
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $image;
+    public $path;
 
     /**
-     * @var String
-     * @ORM\Column(type="string")
+     * @Assert\File(maxSize="6000000")
      */
-    protected $preview;
+    private $file;
+
+    private $temp;
 
     /**
-     * @var
-     * @ORM\OneToOne(targetEntity="Article", mappedBy="image")
+     * @return null|string
      */
-    protected $article;
+    public function getAbsolutePath()
+    {
+        return null === $this->path
+            ?  $this->getUploadRootDir().'/'.$this->path
+            : null;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getWebPath()
+    {
+        return null === $this->path
+            ? $this->getUploadDir().'/'.$this->path
+            : null;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    /**
+     * @return string
+     */
+    protected function getUploadDir()
+    {
+        return 'uploads/';
+    }
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+        if (is_file($this->getAbsolutePath())) {
+            $this->temp = $this->getAbsolutePath();
+            $this->path = null;
+        } else {
+            $this->path = 'initial';
+        }
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null === $this->getFile()) {
+            return;
+        }
+        // check if we have an old image
+        if (isset($this->temp)) {
+            // delete the old image
+            unlink($this->temp);
+            // clear the temp image path
+            $this->temp = null;
+        }
+        // you must throw an exception here if the file cannot be moved
+        // so that the entity is not persisted to the database
+        // which the UploadedFile move() method does
+        $this->getFile()->move(
+            $this->getUploadRootDir(),
+            $this->path
+        );
+        $this->setFile(null);
+    }
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->getFile()) {
+            $filename = sha1(uniqid(mt_rand(), true));
+            $this->path = $filename . '.' . $this->getFile()->guessExtension();
+        }
+    }
+    /**
+     * @ORM\PreRemove()
+     */
+    public function storeFilenameForRemove()
+    {
+        $this->temp = $this->getAbsolutePath();
+    }
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if (isset($this->temp)) {
+            unlink($this->temp);
+        }
+    }
 
     /**
      * @return int
@@ -55,53 +166,35 @@ class Image
     }
 
     /**
-     * @return String
+     * @return mixed
      */
-    public function getImage()
+    public function getPath()
     {
-        return $this->image;
+        return $this->path;
     }
 
     /**
-     * @param String $image
+     * @param mixed $path
      */
-    public function setImage($image)
+    public function setPath($path)
     {
-        $this->image = $image;
-    }
-
-    /**
-     * @return String
-     */
-    public function getPreview()
-    {
-        return $this->preview;
-    }
-
-    /**
-     * @param String $preview
-     */
-    public function setPreview($preview)
-    {
-        $this->preview = $preview;
+        $this->path = $path;
     }
 
     /**
      * @return mixed
      */
-    public function getArticle()
+    public function getTemp()
     {
-        return $this->article;
+        return $this->temp;
     }
 
     /**
-     * @param Article $article
-     * @return $this
+     * @param mixed $temp
      */
-    public function addArticle(Article $article)
+    public function setTemp($temp)
     {
-        $this->article = $article;
-        return $this;
+        $this->temp = $temp;
     }
 
 

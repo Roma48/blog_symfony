@@ -3,7 +3,9 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
+use AppBundle\Entity\Image;
 use AppBundle\Form\ArticleType;
+use AppBundle\Form\ImageType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -69,6 +71,53 @@ class AdminController extends Controller
             'title' => 'New Article',
             'form' => $form->createView(),
             'button' => $buttonName
+        ));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("/admin/image/new", name="new_image")
+     */
+    public function newImageAction(Request $request)
+    {
+        $image = new Image();
+
+        $form = $this->createForm(ImageType::class, $image);
+
+        $buttonName = 'Add Image';
+
+        if ($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($image);
+                $em->flush();
+                return $this->redirectToRoute('admin_images');
+            }
+        }
+
+        return $this->render('admin/new_article.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+            'title' => 'New Image',
+            'form' => $form->createView(),
+            'button' => $buttonName
+        ));
+    }
+
+    /**
+     * @Route("/admin/images", name="admin_images")
+     */
+    public function imagesPageAction(Request $request)
+    {
+        $images = $this->getDoctrine()->getRepository('AppBundle:Image')->findAll();
+
+        return $this->render('admin/all_images.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+            'title' => 'All Images',
+            'images' => $images,
+            'pages' => (int) count($images)/9,
+//            'current' => $page
         ));
     }
 }

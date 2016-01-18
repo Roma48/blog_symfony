@@ -2,7 +2,7 @@
 
     {% block header_image %}
         <div id="header-image">
-            <div class="image-wrapper" style="background-image: url('{{ article.image }}')">
+            <div class="image-wrapper" style="background-image: url('{{ article.image.image }}')">
                 <div class="dark-shadow">
                     <div class="container">
                         <div class="article-caption">
@@ -26,7 +26,7 @@
             <div class="meta_data">
                         <ul>
                             <li class="author"><a class="url fn" href="/">
-                                    <span class="fa fa-user"></span>{{ article.author }}
+                                    <span class="fa fa-user"></span>{{ article.user.firstName }}
                                 </a>
                             </li>
                             <li class="time">
@@ -38,13 +38,13 @@
                             </li>
                             <li class="comment">
                                 <a href="/">
-                                    <span class="fa fa-comment-o"></span>{{ article.comments }}
+                                    <span class="fa fa-comment-o"></span>{{ article.comments|length }}
                                 </a>
                             </li>
                             <li class="like">
                                 <span class="post-like">
                                     <span class="fa fa-heart-o"></span>
-                                    <span class="count">{{ article.like }}</span>
+                                    <span class="count">{{ article.likes|length }}</span>
                                 </span>
                             </li>
                             <li class="views">
@@ -67,7 +67,7 @@
                            <article>
                                <div class="thumb-hover">
                                    <img width="100" height="100"
-                                        src="{{ article.preview }}">
+                                        src="{{ article.image.preview }}">
                                </div>
                                <div class="post-content">
                                    <h3><a href="/">{{ article.title }}</a>
@@ -81,7 +81,7 @@
                                        <li class="like">
                                     <span class="c5-post-like">
                                         <span class="fa fa-heart-o"></span>
-                                        <span class="count">{{ article.like }}</span>
+                                        <span class="count">{{ article.likes|length }}</span>
                                     </span>
                                        </li>
                                    </ul>

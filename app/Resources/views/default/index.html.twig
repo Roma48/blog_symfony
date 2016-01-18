@@ -93,19 +93,19 @@
                     </div>
             {% endfor %}
         </div>
-        {#<div id="pagination">#}
-                {#<div class="">#}
-                    {#<ul class="pagination">#}
-                        {#{% for page in 1..pages + 1 %}#}
-                            {#{% if page == current %}#}
-                                {#<li><span class="page-numbers current"><span class="num">{{ page }}</span></span></li>#}
-                            {#{% else %}#}
-                                {#<li><a class="page-numbers" href="/page/{{ page }}"><span class="num">{{ page }}</span></a></li>#}
-                            {#{% endif %}#}
-                        {#{% endfor %}#}
-                    {#</ul>#}
-                {#</div>#}
-        {#</div>#}
+        <div id="pagination">
+                <div class="">
+                    <ul class="pagination">
+                        {% for page in 1..pages + 1 %}
+                            {% if page == current %}
+                                <li><span class="page-numbers current"><span class="num">{{ page }}</span></span></li>
+                            {% else %}
+                                <li><a class="page-numbers" href="/page/{{ page }}"><span class="num">{{ page }}</span></a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+        </div>
 
 
     {% endblock content %}

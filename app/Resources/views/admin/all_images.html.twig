@@ -10,10 +10,10 @@
         <th>Options</th>
         </thead>
         <tbody>
-        {% for article in articles %}
+        {% for image in images %}
             <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.title }}</td>
+                <td>{{ image.id }}</td>
+                <td class="image"><img src="{{ asset("uploads/") }}{{ image.path }}" alt=""></td>
                 <td>
                     <a href="#" class="btn btn-default">Edit</a>
                     <a href="#" class="btn btn-danger">Delete</a>
@@ -24,20 +24,20 @@
     </table>
 {% endblock content %}
 
-{% block pagination %}
-    <div id="pagination">
-        <div class="">
-            <ul class="pagination">
-                {% for page in 1..pages + 1 %}
-                    {% if page == current %}
-                        <li><span class="page-numbers current"><span class="num">{{ page }}</span></span>
-                        </li>
-                    {% else %}
-                        <li><a class="page-numbers" href="/admin/articles/{{ page }}">
-                                <span class="num">{{ page }}</span></a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-{% endblock pagination %}
+{#{% block pagination %}#}
+    {#<div id="pagination">#}
+        {#<div class="">#}
+            {#<ul class="pagination">#}
+                {#{% for page in 1..pages + 1 %}#}
+                    {#{% if page == current %}#}
+                        {#<li><span class="page-numbers current"><span class="num">{{ page }}</span></span>#}
+                        {#</li>#}
+                    {#{% else %}#}
+                        {#<li><a class="page-numbers" href="/admin/articles/{{ page }}">#}
+                                {#<span class="num">{{ page }}</span></a></li>#}
+                    {#{% endif %}#}
+                {#{% endfor %}#}
+            {#</ul>#}
+        {#</div>#}
+    {#</div>#}
+{#{% endblock pagination %}#}

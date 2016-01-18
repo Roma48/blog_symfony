@@ -75,11 +75,11 @@ class Article
      */
     protected $views;
 
-    /**
-     * @var
-     * @ORM\OneToOne(targetEntity="Image", inversedBy="article")
-     */
-    protected $image;
+//    /**
+//     * @var
+//     * @ORM\OneToOne(targetEntity="Image", inversedBy="article")
+//     */
+//    protected $image;
 
 
     public function __construct()

@@ -8897,6 +8897,7 @@ h6 {
   height: 100vh;
   background: #23282d;
   padding-top: 40px;
+  position: fixed;
 }
 .admin #sidebar .container {
   max-width: 100%;
@@ -8945,9 +8946,19 @@ h6 {
   color: white;
   text-decoration: none;
 }
+.admin #content {
+  float: right;
+}
 .admin #content .container {
   width: 100%;
   padding-top: 15px;
+}
+.admin #content .container input[type="submit"] {
+  margin-top: 20px;
+}
+.admin #content .container td.image img {
+  max-height: 200px;
+  width: auto;
 }
 .admin #content .container #pagination {
   width: 100%;

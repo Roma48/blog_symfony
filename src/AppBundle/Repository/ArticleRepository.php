@@ -44,7 +44,7 @@ class ArticleRepository extends EntityRepository
             ->join('a.likes', 'likes')
             ->groupBy('a.id')
             ->setMaxResults(5)
-            ->orderBy('cnt', 'ASC')
+            ->orderBy('cnt', 'DESC')
             ->getQuery()
             ->getResult();
         return $query;
