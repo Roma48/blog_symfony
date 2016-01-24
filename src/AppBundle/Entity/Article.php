@@ -9,7 +9,7 @@ use AppBundle\Entity\Image;
 
 /**
  * @ORM\Entity()
- * @ORM\Table()
+ * @ORM\Table(name="articles")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ArticleRepository")
  */
 class Article

@@ -10,7 +10,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Class Category
  * @package AppBundle\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
- * @ORM\Table()
+ * @ORM\Table(name="categories")
  */
 class Category
 {

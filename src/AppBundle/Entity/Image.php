@@ -10,7 +10,7 @@ use AppBundle\Entity\Article;
 /**
  * Class Image
  * @package AppBundle\Entity
- * @ORM\Table()
+ * @ORM\Table(name="images")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ImageRepository")
  * @ORM\HasLifecycleCallbacks
  */
