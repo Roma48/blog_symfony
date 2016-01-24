@@ -48,9 +48,9 @@ class Article
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="article")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="articles")
      */
-    protected $category;
+    protected $categories;
 
     /**
      * @var
@@ -62,7 +62,7 @@ class Article
      * @var
      * @ORM\ManyToOne(targetEntity="User", inversedBy="article")
      */
-    protected $user;
+    protected $users;
 
     /**
      * @var
@@ -92,20 +92,19 @@ class Article
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getUsers()
     {
-        return $this->user;
+        return $this->users;
     }
 
     /**
-     * @param User $user
-     * @return $this
+     * @param mixed $users
      */
-    public function setAuthor(User $user)
+    public function setUsers($users)
     {
-        $this->user = $user;
-        return $this;
+        $this->users = $users;
     }
+
 
     /**
      * @return mixed
@@ -190,21 +189,18 @@ class Article
     /**
      * @return mixed
      */
-    public function getCategory()
+    public function getCategories()
     {
-        return $this->category;
+        return $this->categories;
     }
 
     /**
-     * @param Category $category
-     * @return $this
+     * @param mixed $categories
      */
-    public function setCategory(Category $category)
+    public function setCategories($categories)
     {
-        $this->category = $category;
-        return $this;
+        $this->categories = $categories;
     }
-
 
     /**
      * @return mixed

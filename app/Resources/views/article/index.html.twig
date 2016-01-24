@@ -2,15 +2,15 @@
 
     {% block header_image %}
         <div id="header-image">
-            {#<div class="image-wrapper" style="background-image: url('{{ asset('uploads/') }}{{ article.image.path }}')">#}
+            <div class="image-wrapper" style="background-image: url('{{ asset('uploads/') }}{{ article.image.path }}')">
                 {# FOR FIXTURES #}
-            <div class="image-wrapper" style="background-image: url('{{ article.image.path }}')">
+            {#<div class="image-wrapper" style="background-image: url('{{ article.image.path }}')">#}
                 {# FOR FIXTURES #}
                 <div class="dark-shadow">
                     <div class="container">
                         <div class="article-caption">
 
-                            <a class="category" href="/"><i class="fa fa-{{ article.category.class }}"></i> Random</a>
+                            <a class="category" href="/"><i class="fa fa-{{ article.categories.class }}"></i> Random</a>
 
                             <h3>{{ article.title }}</h3>
 
@@ -29,7 +29,7 @@
             <div class="meta_data">
                         <ul>
                             <li class="author"><a class="url fn" href="/">
-                                    <span class="fa fa-user"></span>{{ article.user.firstName }}
+                                    <span class="fa fa-user"></span>{{ article.users.firstName }}
                                 </a>
                             </li>
                             <li class="time">
@@ -78,7 +78,7 @@
                                    <ul class="meta_data">
                                        <li class="category">
                                            <a href="/" class="c5-meta-cat category-5">
-                                               <span class="fa fa-{{ article.category.class }}"></span>Random
+                                               <span class="fa fa-{{ article.categories.class }}"></span>Random
                                            </a>
                                        </li>
                                        <li class="like">

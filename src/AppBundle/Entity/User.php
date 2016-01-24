@@ -35,7 +35,7 @@ class User
 
     /**
      * @var
-     * @ORM\OneToMany(targetEntity="Article", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="users")
      */
     protected $article;
 

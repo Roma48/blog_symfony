@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -31,10 +32,15 @@ class ArticleType extends AbstractType
             ->add("image", ImageType::class, [
                 'label' => ' '
             ])
-            ->add("category", EntityType::class, [
+            ->add("categories", EntityType::class, [
                 'choice_label' => 'name',
                 'attr' => ['class' => 'form-control'],
                 'class' => 'AppBundle\Entity\Category'
+            ])
+            ->add("users", EntityType::class, [
+                'choice_label' => 'firstName',
+                'attr' => ['class' => 'form-control'],
+                'class' => 'AppBundle\Entity\User'
             ])
         ;
     }
