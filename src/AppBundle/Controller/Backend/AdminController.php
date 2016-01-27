@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Backend;
 
 use AppBundle\Entity\Article;
 use AppBundle\Entity\Category;
