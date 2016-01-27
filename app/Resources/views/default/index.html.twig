@@ -7,9 +7,9 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     {% for slide in slides %}
-                        <div class="item {% if loop.first %}active{% endif %}" style="background-image: url('{{ asset('uploads/') }}{{ slide.image.path }}')">
+                        {#<div class="item {% if loop.first %}active{% endif %}" style="background-image: url('{{ asset('uploads/') }}{{ slide.image.path }}')">#}
                         {#FOR FIXTURES#}
-                        {#<div class="item {% if loop.first %}active{% endif %}" style="background-image: url('{{ slide.image.path }}')">#}
+                        <div class="item {% if loop.first %}active{% endif %}" style="background-image: url('{{ slide.image.path }}')">
                             {#FOR FIXTURES#}
                             <div class="dark-shadow">
                                 <div class="carousel-caption">
