@@ -14,7 +14,9 @@
                             <div class="dark-shadow">
                                 <div class="carousel-caption">
                                     <div class="container">
-                                        <a class="category" href="/"><i class="fa fa-{{ slide.categories.class }}"></i> Random</a>
+                                        <a class="category" href="/{{ path('category', { "slug" : slide.categories.slug }, true) }}">
+                                            <i class="fa fa-{{ slide.categories.class }}"></i> {{ slide.categories.name }}
+                                        </a>
 
                                         <a href="/article/{{ slide.slug }}"><h3>{{ slide.title }}</h3></a>
 
@@ -22,7 +24,7 @@
                                         <hr>
                                         <ul class="meta_data">
                                             <li class="author">
-                                                <a class="url fn" href="/"><span class="fa fa-user"></span>{{ slide.users.firstName }}</a>
+                                                <a class="url fn" href="/{{ path("user", { "slug" : slide.users.slug }, true) }}"><span class="fa fa-user"></span>{{ slide.users.firstName }}</a>
                                             </li>
                                             <li class="time">
                                                 <time class="value updated" datetime="2012-08-20">
@@ -65,12 +67,14 @@
             {% for article in articles %}
                     <div class="item-block col col-lg-4">
                         <div class="inner">
-                            <div class="img" style="background-image: url('{{ asset('uploads/') }}{{ article.image.path }}')"></div>
+                            {#<div class="img" style="background-image: url('{{ asset('uploads/') }}{{ article.image.path }}')"></div>#}
                             {# FOR FIXTURES #}
-                            {#<div class="img" style="background-image: url('{{ article.image.path }}')"></div>#}
+                            <div class="img" style="background-image: url('{{ article.image.path }}')"></div>
                             {# FOR FIXTURES #}
                             <div class="inner-text">
-                                <a class="category" href="/"><i class="fa fa-{{ article.categories.class }}"></i> Random</a>
+                                <a class="category" href="/{{ path('category', { 'slug' : article.categories.slug }, true) }}/1">
+                                    <i class="fa fa-{{ article.categories.class }}"></i> {{ article.categories.name }}
+                                </a>
                                 <a class="title" href="/article/{{ article.slug }}">{{ article.title }}</a>
 
                                 <p class="desc">{{ article.description }}...</p>
@@ -79,8 +83,8 @@
                                     <hr>
                                     <ul class="meta_data">
                                         <li class="author">
-                                            <a class="url fn" href="/">
-                                                {#<span class="fa fa-user"></span>{{ article.user.firstName }}#}
+                                            <a class="url fn" href="/{{ path("user", { "slug" : article.users.slug }, true) }}">
+                                                <span class="fa fa-user"></span>{{ article.users.firstName }}
                                             </a>
                                         </li>
                                         <li class="comment">

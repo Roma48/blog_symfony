@@ -36,17 +36,18 @@ class ArticleRepository extends EntityRepository
     public function getSlides()
     {
         $query = $this->createQueryBuilder('a')
-            ->select('a')
-//            ->leftJoin('a.image', 'image')
-//            ->leftJoin('a.categories', 'category')
-//            ->leftJoin('a.users', 'user')
-//            ->leftJoin('a.comments', 'comments')
-//            ->join('a.likes', 'likes')
+            ->select('a, image, category, user, comments')
+            ->leftJoin('a.image', 'image')
+            ->leftJoin('a.categories', 'category')
+            ->leftJoin('a.users', 'user')
+            ->leftJoin('a.comments', 'comments')
+            ->join('a.likes', 'likes')
             ->groupBy('a.id')
             ->setMaxResults(3)
 //            ->orderBy('cnt', 'DESC')
             ->getQuery()
             ->getResult();
+
         return $query;
     }
     /**
@@ -64,14 +65,16 @@ class ArticleRepository extends EntityRepository
             ->leftJoin('t.users', 'user')
             ->leftJoin('t.likes', 'likes')
             ->leftJoin('t.comments', 'comments')
-            ->where('category.class = ?1')
+            ->where('category.slug = ?1')
             ->setParameter(1, $slug)
             ->groupBy('t.id')
             ->setMaxResults($limit)
             ->setFirstResult($page * $limit - $limit)
         ;
+
         $paginator = new Paginator($query, $fetchJoinCollection = true);
         $paginator->setUseOutputWalkers(false);
+
         return $paginator;
     }
 }

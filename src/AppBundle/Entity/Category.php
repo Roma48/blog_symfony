@@ -23,10 +23,22 @@ class Category
     protected $id;
 
     /**
+     * @ORM\Column()
+     * @Gedmo\Slug(fields={"name"})
+     */
+    protected $slug;
+
+    /**
      * @var
      * @ORM\Column(type="string")
      */
     protected $name;
+
+    /**
+     * @var
+     * @ORM\Column(type="text")
+     */
+    protected $description;
 
     /**
      * @var
@@ -39,6 +51,12 @@ class Category
      * @ORM\OneToMany(targetEntity="Article", mappedBy="categories")
      */
     protected $articles;
+
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="Image", inversedBy="category", cascade={"persist"})
+     */
+    protected $image;
 
     public function __construct()
     {
@@ -120,4 +138,55 @@ class Category
         $this->articles->remove($article);
         return $this;
     }
+
+    /**
+     * @return String
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param Image $image
+     * @return $this
+     */
+    public function setImage(Image $image)
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
 }

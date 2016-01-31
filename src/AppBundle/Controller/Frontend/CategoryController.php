@@ -9,21 +9,39 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CategoryController extends Controller
 {
+
+    /**
+     * @Route("/categories/{page}", name="categories")
+     */
+    public function indexAction(Request $request, $page = 1)
+    {
+        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getPage($page);
+
+        return $this->render('category/index.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+            'class' => 'homepage',
+            'title' => 'Categories',
+            'categories' => $categories,
+            'pages' => (int) count($categories)/9,
+            'current' => 1
+        ));
+    }
+
+
     /**
      * @Route("/category/{slug}/{page}", name="category")
      */
-    public function indexAction(Request $request, $slug, $page = 1)
+    public function categoryPageAction(Request $request, $slug, $page = 1)
     {
-        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->getSlides();
-
         $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->findByCategory($slug, $page);
 
-        return $this->render('default/index.html.twig', array(
+        $category = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBy(["slug" => $slug]);
+
+        return $this->render('category/category.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'class' => 'homepage',
-            'title' => 'Home page',
+            'title' => $category->getName(),
             'articles' => $articles,
-            'slides' => $slides,
             'pages' => (int) count($articles)/9,
             'current' => 1
         ));

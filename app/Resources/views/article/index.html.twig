@@ -2,15 +2,15 @@
 
     {% block header_image %}
         <div id="header-image">
-            <div class="image-wrapper" style="background-image: url('{{ asset('uploads/') }}{{ article.image.path }}')">
+            {#<div class="image-wrapper" style="background-image: url('{{ asset('uploads/') }}{{ article.image.path }}')">#}
                 {# FOR FIXTURES #}
-            {#<div class="image-wrapper" style="background-image: url('{{ article.image.path }}')">#}
+            <div class="image-wrapper" style="background-image: url('{{ article.image.path }}')">
                 {# FOR FIXTURES #}
                 <div class="dark-shadow">
                     <div class="container">
                         <div class="article-caption">
 
-                            <a class="category" href="/"><i class="fa fa-{{ article.categories.class }}"></i> Random</a>
+                            <a class="category" href="/{{ path('category', { "slug" : article.categories.slug }) }}"><i class="fa fa-{{ article.categories.class }}"></i> {{ article.categories.name }}</a>
 
                             <h3>{{ article.title }}</h3>
 

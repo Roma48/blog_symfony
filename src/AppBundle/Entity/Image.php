@@ -43,6 +43,12 @@ class Image
     protected $article;
 
     /**
+     * @var
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="image", cascade={"persist"})
+     */
+    protected $category;
+
+    /**
      * @return null|string
      */
     public function getAbsolutePath()

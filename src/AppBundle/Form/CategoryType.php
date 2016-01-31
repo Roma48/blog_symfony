@@ -20,9 +20,16 @@ class CategoryType extends AbstractType
                 'label' => 'Name',
                 'attr' => ['class' => 'form-control']
             ])
+            ->add("description", TextareaType::class, [
+                'label' => 'Description',
+                'attr' => ['class' => 'form-control']
+            ])
             ->add("class", TextType::class, [
                 'label' => 'Class',
                 'attr' => ['class' => 'form-control']
+            ])
+            ->add("image", ImageType::class, [
+                'label' => ' '
             ])
         ;
     }

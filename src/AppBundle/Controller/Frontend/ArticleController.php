@@ -10,6 +10,23 @@ use Symfony\Component\HttpFoundation\Request;
 class ArticleController extends Controller
 {
     /**
+     * @Route("/blog/page/{number}", name="blog")
+     */
+    public function blogAction(Request $request, $number)
+    {
+        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage($number);
+
+        return $this->render('article/blog.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+            'class' => 'homepage',
+            'title' => 'Blog',
+            'articles' => $articles,
+            'pages' => (int) count($articles)/9,
+            'current' => $number
+        ));
+    }
+
+    /**
      * @Route("/article/{slug}", name="article")
      */
     public function indexAction(Request $request, $slug)
@@ -25,25 +42,5 @@ class ArticleController extends Controller
                 'popular' => $most_viewed
             )
         );
-    }
-
-    /**
-     * @Route("/category/{slug}/{page}", name="category")
-     */
-    public function categoryAction(Request $request, $slug, $page = 1)
-    {
-        $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->getSlides();
-
-        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->findByCategory($slug, $page);
-
-        return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-            'class' => 'homepage',
-            'title' => 'Home page',
-            'articles' => $articles,
-            'slides' => $slides,
-            'pages' => (int) count($articles)/9,
-            'current' => 1
-        ));
     }
 }

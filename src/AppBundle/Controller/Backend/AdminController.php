@@ -6,11 +6,13 @@ use AppBundle\Entity\Article;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Comment;
 use AppBundle\Entity\Image;
+use AppBundle\Entity\Page;
 use AppBundle\Entity\User;
 use AppBundle\Form\ArticleType;
 use AppBundle\Form\CategoryType;
 use AppBundle\Form\CommentType;
 use AppBundle\Form\ImageType;
+use AppBundle\Form\PageType;
 use AppBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -405,6 +407,80 @@ class AdminController extends Controller
             'title' => 'All Comments',
             'comments' => $comments,
             'pages' => (int) count($comments)/9,
+            'current' => $page
+        ));
+    }
+
+    /**
+     * @Route("/admin/page/new", name="new_page")
+     */
+    public function newPageAction(Request $request)
+    {
+        $category = new Page();
+
+        $form = $this->createForm(PageType::class, $category);
+
+        $buttonName = 'Add Page';
+
+        if ($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($category);
+                $em->flush();
+                return $this->redirectToRoute('admin_pages', ['page' => 1]);
+            }
+        }
+
+        return $this->render('admin/new_article.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+            'title' => 'New Page',
+            'form' => $form->createView(),
+            'button' => $buttonName
+        ));
+    }
+
+    /**
+     * @Route("/admin/page/{id}/edit", name="edit_page")
+     */
+    public function editPageAction(Request $request, $id)
+    {
+        $category = $this->getDoctrine()->getRepository('AppBundle:Page')->findOneBy(['id' => $id]);
+
+        $form = $this->createForm(PageType::class, $category);
+
+        $buttonName = 'Edit Page';
+
+        if ($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($category);
+                $em->flush();
+                return $this->redirectToRoute('admin_pages', ['page' => 1]);
+            }
+        }
+
+        return $this->render('admin/new_article.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+            'title' => 'Edit Page',
+            'form' => $form->createView(),
+            'button' => $buttonName
+        ));
+    }
+
+    /**
+     * @Route("/admin/pages/{page}", name="admin_pages")
+     */
+    public function pagesAction(Request $request, $page)
+    {
+        $pages = $this->getDoctrine()->getRepository('AppBundle:Page')->getPage($page);
+
+        return $this->render('admin/all_pages.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+            'title' => 'All Pages',
+            'pages' => $pages,
+            'pagination' => (int) count($pages)/9,
             'current' => $page
         ));
     }

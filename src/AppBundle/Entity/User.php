@@ -22,6 +22,12 @@ class User
     protected $id;
 
     /**
+     * @ORM\Column()
+     * @Gedmo\Slug(fields={"firstName", "lastName"})
+     */
+    protected $slug;
+
+    /**
      * @var String
      * @ORM\Column(type="string")
      */
@@ -32,6 +38,18 @@ class User
      * @ORM\Column(type="string")
      */
     protected $lastName;
+
+    /**
+     * @var
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $age;
+
+    /**
+     * @var
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    protected $birthDay;
 
     /**
      * @var
@@ -90,5 +108,85 @@ class User
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param mixed $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBirthDay()
+    {
+        return $this->birthDay;
+    }
+
+    /**
+     * @param mixed $birthDay
+     */
+    public function setBirthDay($birthDay)
+    {
+        $this->birthDay = $birthDay;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+
+    /**
+     * @param mixed $article
+     */
+    public function setArticle($article)
+    {
+        $this->article = $article;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLike()
+    {
+        return $this->like;
+    }
+
+    /**
+     * @param mixed $like
+     */
+    public function setLike($like)
+    {
+        $this->like = $like;
     }
 }

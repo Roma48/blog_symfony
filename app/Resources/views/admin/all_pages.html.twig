@@ -6,19 +6,17 @@
     <table class="table table-hover">
         <thead>
         <th>#</th>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th>Title</th>
         <th>Options</th>
         </thead>
         <tbody>
-        {% for user in users %}
+        {% for page in pages %}
             <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.firstName }}</td>
-                <td>{{ user.lastName }}</td>
+                <td>{{ page.id }}</td>
+                <td>{{ page.title }}</td>
                 <td>
-                    <a href="/admin/user/{{ user.id }}/edit" class="btn btn-default">Edit</a>
-                    {#<a href="/admin/article/{{ article.id }}/delete" class="btn btn-danger">Delete</a>#}
+                    <a href="/admin/page/{{ page.id }}/edit" class="btn btn-default">Edit</a>
+                    {#<a href="#" class="btn btn-danger">Delete</a>#}
                 </td>
             </tr>
         {% endfor %}
@@ -30,13 +28,13 @@
     <div id="pagination">
         <div class="">
             <ul class="pagination">
-                {% if pages > 1 %}
-                    {% for page in 1..pages + 1 %}
+                {% if pagination > 1 %}
+                    {% for page in 1..pagination + 1 %}
                         {% if page == current %}
                             <li><span class="page-numbers current"><span class="num">{{ page }}</span></span>
                             </li>
                         {% else %}
-                            <li><a class="page-numbers" href="/admin/users/{{ page }}">
+                            <li><a class="page-numbers" href="/admin/pages/{{ page }}">
                                     <span class="num">{{ page }}</span></a></li>
                         {% endif %}
                     {% endfor %}

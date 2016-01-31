@@ -13,10 +13,10 @@ class UserRepository extends EntityRepository
 {
 
     /**
-     * @param int $page
+     * @param $slug
      * @return Paginator
      */
-    public function getPage($page = 1)
+    public function getPage($page)
     {
         $limit = 9;
         $query = $this->createQueryBuilder('user')
