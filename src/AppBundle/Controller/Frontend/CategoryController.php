@@ -9,31 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CategoryController extends Controller
 {
-
-    /**
-     * @Route("/categories/{page}", name="categories")
-     */
-    public function indexAction(Request $request, $page = 1)
-    {
-        $categories = $this->getDoctrine()->getRepository('AppBundle:Category')->getPage($page);
-
-        return $this->render('category/index.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-            'class' => 'homepage',
-            'title' => 'Categories',
-            'categories' => $categories,
-            'pages' => (int) count($categories)/9,
-            'current' => 1
-        ));
-    }
-
-
     /**
      * @Route("/category/{slug}/{page}", name="category")
      */
     public function categoryPageAction(Request $request, $slug, $page = 1)
     {
-        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->findByCategory($slug, $page);
+        $articles = $this->get('app.pagination')->getCategory($slug, $page);
 
         $category = $this->getDoctrine()->getRepository('AppBundle:Category')->findOneBy(["slug" => $slug]);
 
@@ -42,7 +23,6 @@ class CategoryController extends Controller
             'class' => 'homepage',
             'title' => $category->getName(),
             'articles' => $articles,
-            'pages' => (int) count($articles)/9,
             'current' => 1
         ));
     }

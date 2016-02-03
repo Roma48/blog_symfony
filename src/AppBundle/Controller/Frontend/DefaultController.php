@@ -16,7 +16,7 @@ class DefaultController extends Controller
     {
         $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->getSlides();
 
-        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage();
+        $articles = $this->get('app.pagination')->getArticles(1);
 
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
@@ -24,7 +24,6 @@ class DefaultController extends Controller
             'title' => 'Home page',
             'articles' => $articles,
             'slides' => $slides,
-            'pages' => (int) count($articles)/9,
             'current' => 1
         ));
     }
@@ -36,7 +35,7 @@ class DefaultController extends Controller
     {
         $slides = $this->getDoctrine()->getRepository('AppBundle:Article')->getSlides();
 
-        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage($number);
+        $articles = $this->get('app.pagination')->getArticles($number);
 
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
@@ -44,7 +43,6 @@ class DefaultController extends Controller
             'title' => 'Home page',
             'articles' => $articles,
             'slides' => $slides,
-            'pages' => (int) count($articles)/9,
             'current' => $number
         ));
     }

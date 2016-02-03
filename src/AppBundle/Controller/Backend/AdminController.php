@@ -42,7 +42,7 @@ class AdminController extends Controller
      */
     public function articlesPageAction(Request $request, $page)
     {
-        $articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getPage($page);
+        $articles = $this->get('app.pagination')->getArticles($page);
 
         return $this->render('admin/all_articles.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),

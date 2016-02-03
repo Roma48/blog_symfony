@@ -2,15 +2,17 @@
 
 namespace AppBundle\Tests\Controller\Frontend;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use AppBundle\Tests\TestBaseWeb;
 
-class CategoryControllerTest extends WebTestCase
+class CategoryControllerTest extends TestBaseWeb
 {
     public function testIndex()
     {
-        $client = static::createClient();
+        $client = $this->client;
 
-        $crawler = $client->request('GET', '/category/random/1');
+        $category = $client->getContainer()->get('doctrine')->getManager()->getRepository('AppBundle:Category')->findOneBy(["id" => 1]);
+
+        $crawler = $client->request('GET', '/category/' . $category->getSlug() . '/1');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }

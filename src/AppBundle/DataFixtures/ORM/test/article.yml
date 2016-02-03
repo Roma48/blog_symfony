@@ -4,8 +4,8 @@ AppBundle\Entity\Article:
     description: <realText($maxNbChars = 200, $indexSize = 2)>
     content: <realText($maxNbChars = 2000, $indexSize = 2)>
     views: <numberBetween(1, 60)>
-    category: @category*
-    image (unique): @image*
-    user: @user*
+    categories: @category*
+    users: @user*
+    image: @image*
 
 

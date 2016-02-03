@@ -26,9 +26,8 @@ class ArticleRepository extends EntityRepository
             ->setMaxResults($limit)
             ->setFirstResult($page * $limit - $limit)
         ;
-        $paginator = new Paginator($query, $fetchJoinCollection = false);
-        $paginator->setUseOutputWalkers(false);
-        return $paginator;
+
+        return $query;
     }
     /**
      * @return array
@@ -72,9 +71,6 @@ class ArticleRepository extends EntityRepository
             ->setFirstResult($page * $limit - $limit)
         ;
 
-        $paginator = new Paginator($query, $fetchJoinCollection = true);
-        $paginator->setUseOutputWalkers(false);
-
-        return $paginator;
+        return $query;
     }
 }

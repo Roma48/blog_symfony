@@ -47,7 +47,7 @@
         <div id="pagination">
                 <div class="">
                     <ul class="pagination">
-                        {% if pages > 1 %}
+                        {% if articles|length / 9 > 1 %}
                             {% for page in 1..pages + 1 %}
                                 {% if page == current %}
                                     <li><span class="page-numbers current"><span class="num">{{ page }}</span></span></li>

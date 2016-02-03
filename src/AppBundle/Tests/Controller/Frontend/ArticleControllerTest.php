@@ -2,9 +2,10 @@
 
 namespace AppBundle\Tests\Controller\Frontend;
 
+use AppBundle\Tests\TestBaseWeb;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ArticleControllerTest extends WebTestCase
+class ArticleControllerTest extends TestBaseWeb
 {
     public function testIndex()
     {

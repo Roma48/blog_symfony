@@ -6,10 +6,11 @@ use AppBundle\Entity\Category;
 use AppBundle\Entity\Image;
 use AppBundle\Entity\User;
 use AppBundle\Form\ArticleType;
+use AppBundle\Tests\TestBaseWeb;
 use Faker\Factory;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class AdminControllerTest extends WebTestCase
+class AdminControllerTest extends TestBaseWeb
 {
     public function testIndex()
     {
