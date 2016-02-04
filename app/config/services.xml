@@ -8,5 +8,11 @@
         <service id="app.pagination" class="AppBundle\Services\Pagination">
             <argument key="doctrine" type="service" id="doctrine" />
         </service>
+
+        <service id="app.twig_extension" class="AppBundle\Twig\AppExtension">
+            <tag name="twig.extension" />
+            <argument key="doctrine" type="service" id="doctrine"/>
+        </service>
+
     </services>
 </container>
