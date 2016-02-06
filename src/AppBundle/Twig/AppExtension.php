@@ -36,7 +36,9 @@ class AppExtension extends \Twig_Extension
 
     public function popularArticles()
     {
-        return "My first function";
+        $popular = $this->doctrine->getManager()->getRepository('AppBundle:Article')->popularArticles();
+
+        return $popular;
     }
 
     /**

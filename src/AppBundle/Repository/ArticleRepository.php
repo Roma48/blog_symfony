@@ -10,7 +10,7 @@ class ArticleRepository extends EntityRepository
 {
     /**
      * @param int $page
-     * @return Paginator
+     * @return \Doctrine\ORM\QueryBuilder
      */
     public function getPage($page = 1)
     {
@@ -29,6 +29,7 @@ class ArticleRepository extends EntityRepository
 
         return $query;
     }
+
     /**
      * @return array
      */
@@ -49,10 +50,11 @@ class ArticleRepository extends EntityRepository
 
         return $query;
     }
+
     /**
      * @param string $slug
      * @param int $page
-     * @return Paginator
+     * @return \Doctrine\ORM\QueryBuilder
      */
     public function findByCategory($slug = '', $page = 1)
     {
@@ -69,6 +71,29 @@ class ArticleRepository extends EntityRepository
             ->groupBy('t.id')
             ->setMaxResults($limit)
             ->setFirstResult($page * $limit - $limit)
+        ;
+
+        return $query;
+    }
+
+    /**
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function popularArticles()
+    {
+        $limit = 5;
+        $query = $this->createQueryBuilder('p')
+            ->select('p, image, category, likes, comments, user')
+            ->leftJoin('p.image', 'image')
+            ->leftJoin('p.categories', 'category')
+            ->leftJoin('p.likes', 'likes')
+            ->leftJoin('p.comments', 'comments')
+            ->leftJoin('p.users', 'user')
+            ->orderBy('p.views', 'DESC')
+            ->groupBy('p.id')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
         ;
 
         return $query;
