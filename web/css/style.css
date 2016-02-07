@@ -8971,3 +8971,8 @@ h6 {
 .admin #content .container #pagination .current {
   color: silver;
 }
+.login #content,
+.register #content {
+  padding-top: 80px;
+  min-height: 500px;
+}

@@ -34,6 +34,9 @@ class AppExtension extends \Twig_Extension
         ];
     }
 
+    /**
+     * @return \Doctrine\ORM\QueryBuilder
+     */
     public function popularArticles()
     {
         $popular = $this->doctrine->getManager()->getRepository('AppBundle:Article')->popularArticles();
