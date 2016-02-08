@@ -8,6 +8,7 @@ use AppBundle\Entity\Comment;
 use AppBundle\Entity\Image;
 use AppBundle\Entity\Page;
 use AppBundle\Entity\User;
+use AppBundle\Form\AdminCommentType;
 use AppBundle\Form\ArticleType;
 use AppBundle\Form\CategoryType;
 use AppBundle\Form\CommentType;
@@ -346,7 +347,7 @@ class AdminController extends Controller
     {
         $comment = new Comment();
 
-        $form = $this->createForm(CommentType::class, $comment);
+        $form = $this->createForm(AdminCommentType::class, $comment);
 
         $buttonName = 'Add Comment';
 
@@ -375,7 +376,7 @@ class AdminController extends Controller
     {
         $comment = $this->getDoctrine()->getRepository('AppBundle:Comment')->findOneBy(['id' => $id]);
 
-        $form = $this->createForm(CommentType::class, $comment);
+        $form = $this->createForm(AdminCommentType::class, $comment);
 
         $buttonName = 'Edit Comment';
 

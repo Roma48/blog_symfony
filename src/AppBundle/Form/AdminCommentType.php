@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CommentType extends AbstractType
+class AdminCommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -16,6 +16,11 @@ class CommentType extends AbstractType
             ->add("message", TextareaType::class, [
                 'label' => 'Message',
                 'attr' => ['class' => 'form-control']
+            ])
+            ->add("article", EntityType::class, [
+                'choice_label' => 'title',
+                'attr' => ['class' => 'form-control'],
+                'class' => 'AppBundle\Entity\Article'
             ])
         ;
     }
