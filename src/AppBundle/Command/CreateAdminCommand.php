@@ -9,6 +9,14 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class CreateAdminCommand
+ * @package AppBundle\Command
+ *
+ *  app/console blog:admin:create <username> <password> <firstName> <lastName>
+ *  app/console blog:admin:create test1 test Roma Paliy
+ *
+ */
 class CreateAdminCommand extends ContainerAwareCommand
 {
     protected function configure()
@@ -16,7 +24,7 @@ class CreateAdminCommand extends ContainerAwareCommand
         $this
             ->setName('blog:admin:create')
             ->setDescription('Create admin for site')
-            ->addArgument('username', InputArgument::REQUIRED, 'Who do you want to greet?')
+            ->addArgument('username', InputArgument::REQUIRED, 'Username')
             ->addArgument('password', InputArgument::REQUIRED, 'Password')
             ->addArgument('firstName', InputArgument::REQUIRED, 'First Name')
             ->addArgument('lastName', InputArgument::REQUIRED, 'Last Name')
