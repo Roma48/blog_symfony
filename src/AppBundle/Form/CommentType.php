@@ -17,11 +17,16 @@ class CommentType extends AbstractType
                 'label' => 'Message',
                 'attr' => ['class' => 'form-control']
             ])
-            ->add("article", EntityType::class, [
-                'choice_label' => 'title',
-                'attr' => ['class' => 'form-control'],
-                'class' => 'AppBundle\Entity\Article'
-            ])
+//            ->add("article", EntityType::class, [
+//                'choice_label' => 'title',
+//                'attr' => ['class' => 'form-control'],
+//                'class' => 'AppBundle\Entity\Article'
+//            ])
+//            ->add("user", EntityType::class, [
+//                'choice_label' => 'username',
+//                'attr' => ['class' => 'form-control'],
+//                'class' => 'AppBundle\Entity\User'
+//            ])
         ;
     }
     public function configureOptions(OptionsResolver $resolver)

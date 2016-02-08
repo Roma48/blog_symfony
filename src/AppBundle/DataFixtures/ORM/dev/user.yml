@@ -2,5 +2,7 @@ AppBundle\Entity\User:
   user_{1..100}:
     firstName: <firstName()>
     lastName: <lastName()>
-    age: <numberBetween(1, 60)>
-    birthDay: <dateTime()>
+    salt: 11111111111111111111111111111111111111111111
+    username (unique): <firstName()>
+    roles: ROLE_USER
+    password: <lastName()>

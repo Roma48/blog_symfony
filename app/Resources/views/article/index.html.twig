@@ -58,8 +58,29 @@
                     </div>
             <div class="article-text">
                       {{ article.content }}
+
+
+                <div id="comments">
+                    <h2>Comments</h2>
+
+                    {% for comment in comments %}
+                        <div class="comment">
+                            <h4>{{ comment.user.username }}</h4>
+                            <p>{{ comment.message }}</p>
+                        </div>
+                    {% endfor %}
+
+                    {% if app.user %}
+                        {{ form_start(form) }}
+                        {{ form_row(form.message) }}
+                        <input type="submit" value="Add Comment" class="btn btn-default">
+                        {{ form_end(form) }}
+                    {% endif %}
+                </div>
             </div>
         </div>
+
+
     {% endblock content %}
 
     {% block sidebar %}
