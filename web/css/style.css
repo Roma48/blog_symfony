@@ -8976,3 +8976,8 @@ h6 {
   padding-top: 80px;
   min-height: 500px;
 }
+#lang {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}

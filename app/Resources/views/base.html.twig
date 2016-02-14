@@ -18,11 +18,20 @@
                         </div>
                         <div id="main-menu">
                             <ul id="top-menu">
-                                <li><a href="/">Home</a></li>
-                                <li><a href="/{{ path('blog', { "number" : 1}, true) }}">Blog</a></li>
-                                <li><a href="/">About</a></li>
-                                <li><a href="/">Contact</a></li>
+                                <li><a href="/">{{ 'menu.home'|trans }}</a></li>
+                                <li><a href="/{{ path('blog', { "number" : 1}, true) }}">{{ 'menu.blog'|trans }}</a></li>
+                                <li><a href="/">{{ 'menu.about'|trans }}</a></li>
+                                <li><a href="/">{{ 'menu.contact'|trans }}</a></li>
                             </ul>
+                        </div>
+                        
+                        <div id="lang">
+                            <a href="{{ path('homepage', { "_locale" : "ru" }) }}">
+                                <img src="{{ asset('img/ua.gif') }}" alt="">
+                            </a>
+                            <a href="{{ path('homepage', { "_locale" : "en" }) }}">
+                                <img src="{{ asset('img/en.gif') }}" alt="">
+                            </a>
                         </div>
                     </div>
                 </div>

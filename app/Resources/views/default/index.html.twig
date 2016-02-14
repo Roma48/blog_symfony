@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
-
     {% block slider %}
+
         <div id="slider">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
@@ -112,7 +112,7 @@
                                 {% if page == current %}
                                     <li><span class="page-numbers current"><span class="num">{{ page }}</span></span></li>
                                 {% else %}
-                                    <li><a class="page-numbers" href="/page/{{ page }}"><span class="num">{{ page }}</span></a></li>
+                                    <li><a class="page-numbers" href="{{ path('pagination', { "number": page }) }}"><span class="num">{{ page }}</span></a></li>
                                 {% endif %}
                             {% endfor %}
                         {% endif %}

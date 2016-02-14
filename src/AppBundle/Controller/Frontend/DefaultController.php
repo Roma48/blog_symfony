@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/{_locale}", name="homepage", defaults={"_locale" = "en"})
      */
     public function indexAction(Request $request)
     {
@@ -29,7 +29,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/page/{number}", name="pagination")
+     * @Route("{_locale}/page/{number}", name="pagination", defaults={"_locale" = "en"})
      */
     public function pageAction(Request $request, $number)
     {
