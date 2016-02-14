@@ -4,7 +4,7 @@ clear
 
 echo "Start install project"
 
-sudo composer update
+composer update
 
 php app/console doctrine:database:create
 php app/console doctrine:schema:update --force
